@@ -1,0 +1,863 @@
+PASS-TABLE-ORDERED VERIFICATION of Steps 1 & 2   (all values COMPUTED from A,B,C; uniform in n,j)
+
+======================================================================
+=== Even n, Pass 1   (15 tuples) ===
+======================================================================
+......................................................................
+m=9j+1     [j=0           ]                              Type (S)
+   A = P(q)*mu :   P(q) = -1 ,   mu = q^{n-2}   (P(0)=-1 != 0)
+   Step 1:  k = val(mu) = n-2 ,   a = P(0) = -1 ,   so K = a*q^k = -q^{n-2}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q^2 + q + q^n - 1)/(q - 1)
+   CHECK:  from A directly val(A)=n-2, lc=-1 (=k,a: True);  val(C)=n+3(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=2} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+1     [j notin {0}   ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (-q^3 + 3*q^2 - 3*q + 2)/(q^2 - 2*q + 1)        [q-order = 0 <= 1]
+        q^{n-2j}: coeff -q/(q^2 - 2*q + 1)         [q-order = n-2j+1 >= 2]
+        q^{n}:    coeff (-q^3 + 3*q^2 - 3*q + 2)/(q^2 - 2*q + 1) [q-order = n >= 2]
+        q^{2j}:   coeff (-q^4 + 5*q^3 - 9*q^2 + 8*q - 4)/(q^2 - 2*q + 1) [q-order = 2j >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = 2 ,  K = 2
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = -1/2*q + 1
+   CHECK:  from A directly val(A)=0, lc=2 (=k,a: True);  val(C)=2j(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=1, n-2j>=1} ;  used down to d=n-2j=2  =>  inside cone (OK)
+......................................................................
+m=9j+2     [j=0           ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (q^3 - 3*q^2 + 3*q - 2)/(q - 1)        [q-order = 0 <= 1]
+        q^{n}:    coeff (q^2 - 2*q + 2)/(q - 1)    [q-order = n >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = 2 ,  K = 2
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = 1/2*q + 1
+   CHECK:  from A directly val(A)=0, lc=2 (=k,a: True);  val(C)=n(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=1} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+2     [j notin {0}   ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (1/8*q^3 - 3/8*q^2 + 3/8*q - 1/4)/(q^2 - 2*q + 1)        [q-order = 0 <= 1]
+        q^{n-2j}: coeff (1/8*q^2 - 1/2*q + 1/2)/(q^3 - 2*q^2 + q) [q-order = n-2j-1 >= 2]
+        q^{n}:    coeff (1/8*q^3 - 3/8*q^2 + 3/8*q - 1/4)/(q^2 - 2*q + 1) [q-order = n >= 2]
+        q^{2j}:   coeff (1/8*q^4 - 1/8*q^3 + 1/8*q^2)/(q^2 - 2*q + 1) [q-order = 2j+2 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = -1/4 ,  K = -1/4
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = -1/2*q + 1
+   CHECK:  from A directly val(A)=0, lc=-1/4 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=1, n-2j>=3} ;  used down to d=n-2j=4  =>  inside cone (OK)
+......................................................................
+m=9j+3     [j=0           ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (-1/8*q^3 - 1/8*q^2 + 1/8*q - 1/4)/(q - 1)        [q-order = 0 <= 1]
+        q^{n}:    coeff (-1/8*q^3 + 1/4*q^2 - 1/4*q + 1/2)/(q^2 - q) [q-order = n-1 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = 1/4 ,  K = 1/4
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = -1/2*q + 1
+   CHECK:  from A directly val(A)=0, lc=1/4 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=3} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+3     [j notin {0}   ]                              Type (S)
+   A = P(q)*mu :   P(q) = 2 ,   mu = q^{n-2j-3}   (P(0)=2 != 0)
+   Step 1:  k = val(mu) = n-2j-3 ,   a = P(0) = 2 ,   so K = a*q^k = 2*q^{n-2j-3}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q^3*q^{2j} + q^2*q^{2j} - q*q^{2j} + q^n)/(q^2*q^{2j} - q*q^{2j})
+   CHECK:  from A directly val(A)=n-2j-3, lc=2 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=1, n-2j>=3} ;  used down to d=n-2j=4  =>  inside cone (OK)
+......................................................................
+m=9j+4     [j=0           ]                              Type (S)
+   A = P(q)*mu :   P(q) = 2 ,   mu = q^{n-3}   (P(0)=2 != 0)
+   Step 1:  k = val(mu) = n-3 ,   a = P(0) = 2 ,   so K = a*q^k = 2*q^{n-3}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q^3 + q^2 - q + q^n)/(q^2 - q)
+   CHECK:  from A directly val(A)=n-3, lc=2 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=3} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+4     [j notin {0}   ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (q^2 - q + 1)/(q - 1)        [q-order = 0 <= 1]
+        q^{n-2j}: coeff -1/q                       [q-order = n-2j-1 >= 2]
+        q^{n}:    coeff (-q^2 + q - 1)/(q - 1)     [q-order = n >= 2]
+        q^{2j}:   coeff q^3 - q^2 + q              [q-order = 2j+1 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = -1 ,  K = -1
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = 1
+   CHECK:  from A directly val(A)=0, lc=-1 (=k,a: True);  val(C)=n-2j-1(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=1, n-2j>=2} ;  used down to d=n-2j=4  =>  inside cone (OK)
+......................................................................
+m=9j+5     [j=0           ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (q^4 - 2*q^3 + 3*q^2 - 2*q + 1)/(q - 1)        [q-order = 0 <= 1]
+        q^{n}:    coeff (-q^3 + q^2 - 2*q + 1)/(q^2 - q) [q-order = n-1 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = -1 ,  K = -1
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = q + 1
+   CHECK:  from A directly val(A)=0, lc=-1 (=k,a: True);  val(C)=n-1(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=2} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+5     [j notin {0}   ]                              Type (S)
+   A = P(q)*mu :   P(q) = q^2 - q + 1 ,   mu = q^{2j-1}   (P(0)=1 != 0)
+   Step 1:  k = val(mu) = 2j-1 ,   a = P(0) = 1 ,   so K = a*q^k = q^{2j-1}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (q*q^{2j} - 1)/(q - 1)
+   CHECK:  from A directly val(A)=2j-1, lc=1 (=k,a: True);  val(C)=n-2j+1(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=1, n-2j>=0} ;  used down to d=n-2j=4  =>  inside cone (OK)
+......................................................................
+m=9j+6     [j=0           ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (q^4 + q)/(q - 1)        [q-order = 1 <= 1]
+        q^{n}:    coeff (-q^2 - 1)/(q - 1)         [q-order = n >= 2]
+   Step 1:  least-order term is in A0  =>  k = 1 ,  a = lc(A0) = -1 ,  K = -q
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = q^2 - q + 1
+   CHECK:  from A directly val(A)=1, lc=-1 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=4} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+6     [j notin {0}   ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (q^3 - q^2 + q)/(q^2 - 2*q + 1)        [q-order = 1 <= 1]
+        q^{n-2j}: coeff -1/(q^2 - 2*q + 1)         [q-order = n-2j >= 2]
+        q^{n}:    coeff (q^3 - q^2 + q)/(q^2 - 2*q + 1) [q-order = n+1 >= 2]
+        q^{2j}:   coeff (-q^5 + q^4 - q^3)/(q^2 - 2*q + 1) [q-order = 2j+3 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 1 ,  a = lc(A0) = 1 ,  K = q
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = -q + 1
+   CHECK:  from A directly val(A)=1, lc=1 (=k,a: True);  val(C)=2j+1(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=1, n-2j>=4} ;  used down to d=n-2j=4  =>  inside cone (OK)
+......................................................................
+m=9j+7     [all j         ]                              Type (S)
+   A = P(q)*mu :   P(q) = 1 ,   mu = q^{n-2j-4}   (P(0)=1 != 0)
+   Step 1:  k = val(mu) = n-2j-4 ,   a = P(0) = 1 ,   so K = a*q^k = q^{n-2j-4}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q^4*q^{2j} + q^3*q^{2j} - q^2*q^{2j} + q^n)/(q^3*q^{2j} - q^2*q^{2j})
+   CHECK:  from A directly val(A)=n-2j-4, lc=1 (=k,a: True);  val(C)=3(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=0, n-2j>=4} ;  used down to d=n-2j=4  =>  inside cone (OK)
+......................................................................
+m=9j+8     [all j         ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (-q^2 + q - 1)/(q - 1)        [q-order = 0 <= 1]
+        q^{n-2j}: coeff -1/q^2                     [q-order = n-2j-2 >= 2]
+        q^{n}:    coeff (q^2 - q + 1)/(q - 1)      [q-order = n >= 2]
+        q^{2j}:   coeff q^4 - q^3 + q^2            [q-order = 2j+2 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = 1 ,  K = 1
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = 1
+   CHECK:  from A directly val(A)=0, lc=1 (=k,a: True);  val(C)=n-2j-2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=0, n-2j>=3} ;  used down to d=n-2j=4  =>  inside cone (OK)
+......................................................................
+m=9j+9     [all j         ]                              Type (S)
+   A = P(q)*mu :   P(q) = -q^2 + q - 1 ,   mu = q^{2j}   (P(0)=-1 != 0)
+   Step 1:  k = val(mu) = 2j ,   a = P(0) = -1 ,   so K = a*q^k = -q^{2j}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (q^2*q^{2j} - 1)/(q - 1)
+   CHECK:  from A directly val(A)=2j, lc=-1 (=k,a: True);  val(C)=n-2j(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=0, n-2j>=1} ;  used down to d=n-2j=4  =>  inside cone (OK)
+
+======================================================================
+=== Even n, Pass 2   (14 tuples) ===
+======================================================================
+......................................................................
+m=9j+1     [j=0           ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (1/4*q^2 - 5/8*q + 1/4)/(q - 1)        [q-order = 0 <= 1]
+        q^{n}:    coeff (1/8*q^2 - 1/8*q + 1/8)/(q - 1) [q-order = n >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = -1/4 ,  K = -1/4
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = 3/2*q + 1
+   CHECK:  from A directly val(A)=0, lc=-1/4 (=k,a: True);  val(C)=n(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=1} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+1     [j notin {0}   ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (q^3 - q^2 + q)/(q^2 - 2*q + 1)        [q-order = 1 <= 1]
+        q^{n-2j}: coeff (-q^3 + q^2 - q)/(q^2 - 2*q + 1) [q-order = n-2j+1 >= 2]
+        q^{n}:    coeff (q^3 - q^2 + q)/(q^2 - 2*q + 1) [q-order = n+1 >= 2]
+        q^{2j}:   coeff -q^2/(q^2 - 2*q + 1)       [q-order = 2j+2 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 1 ,  a = lc(A0) = 1 ,  K = q
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = -q + 1
+   CHECK:  from A directly val(A)=1, lc=1 (=k,a: True);  val(C)=2j(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=1, n-2j>=3} ;  used down to d=n-2j=4  =>  inside cone (OK)
+......................................................................
+m=9j+2     [j=0           ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (4*q^2 - 4*q - 4)/(q - 1)        [q-order = 0 <= 1]
+        q^{n}:    coeff (2*q^3 + 2)/(q^2 - q)      [q-order = n-1 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = 4 ,  K = 4
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = -2*q + 1
+   CHECK:  from A directly val(A)=0, lc=4 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=3} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+2     [j notin {0}   ]                              Type (S)
+   A = P(q)*mu :   P(q) = q^2 - q + 1 ,   mu = q^{n-2j-3}   (P(0)=1 != 0)
+   Step 1:  k = val(mu) = n-2j-3 ,   a = P(0) = 1 ,   so K = a*q^k = q^{n-2j-3}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q*q^{2j} + q^n)/(q^2*q^{2j} - q*q^{2j})
+   CHECK:  from A directly val(A)=n-2j-3, lc=1 (=k,a: True);  val(C)=3(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=1, n-2j>=1} ;  used down to d=n-2j=4  =>  inside cone (OK)
+......................................................................
+m=9j+3     [j=0           ]                              Type (S)
+   A = P(q)*mu :   P(q) = 1/2*q^2 - 1/2*q + 1/2 ,   mu = q^{n-3}   (P(0)=1/2 != 0)
+   Step 1:  k = val(mu) = n-3 ,   a = P(0) = 1/2 ,   so K = a*q^k = 1/2*q^{n-3}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q + q^n)/(q^2 - q)
+   CHECK:  from A directly val(A)=n-3, lc=1/2 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=2} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+3     [j notin {0}   ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (-q^2 + q - 1)/(q - 1)        [q-order = 0 <= 1]
+        q^{n-2j}: coeff (-q^2 + q - 1)/q           [q-order = n-2j-1 >= 2]
+        q^{n}:    coeff (q^2 - q + 1)/(q - 1)      [q-order = n >= 2]
+        q^{2j}:   coeff q                          [q-order = 2j+1 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = 1 ,  K = 1
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = 1
+   CHECK:  from A directly val(A)=0, lc=1 (=k,a: True);  val(C)=n-2j-1(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=1, n-2j>=2} ;  used down to d=n-2j=4  =>  inside cone (OK)
+......................................................................
+m=9j+4     [j=0           ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (1/2*q^2 - 1/2*q - 1/2)/(q - 1)        [q-order = 0 <= 1]
+        q^{n}:    coeff (1/4*q^3 + 1/4)/(q^2 - q)  [q-order = n-1 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = 1/2 ,  K = 1/2
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = -2*q + 1
+   CHECK:  from A directly val(A)=0, lc=1/2 (=k,a: True);  val(C)=n-1(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=2} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+4     [j notin {0}   ]                              Type (S)
+   A = P(q)*mu :   P(q) = -1 ,   mu = q^{2j-1}   (P(0)=-1 != 0)
+   Step 1:  k = val(mu) = 2j-1 ,   a = P(0) = -1 ,   so K = a*q^k = -q^{2j-1}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q^2 + q*q^{2j} + q - 1)/(q - 1)
+   CHECK:  from A directly val(A)=2j-1, lc=-1 (=k,a: True);  val(C)=n-2j+1(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=1, n-2j>=0} ;  used down to d=n-2j=4  =>  inside cone (OK)
+......................................................................
+m=9j+5     [j=0           ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (-4*q^2 + 10*q - 4)/(q - 1)        [q-order = 0 <= 1]
+        q^{n}:    coeff (-2*q^2 + 2*q - 2)/(q - 1) [q-order = n >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = 4 ,  K = 4
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = 3/2*q + 1
+   CHECK:  from A directly val(A)=0, lc=4 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=2} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+5     [j notin {0}   ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (-q^3 + 3*q^2 - 3*q + 2)/(q^2 - 2*q + 1)        [q-order = 0 <= 1]
+        q^{n-2j}: coeff (-q^2 + q - 1)/(q^2 - 2*q + 1) [q-order = n-2j >= 2]
+        q^{n}:    coeff (-q^3 + 3*q^2 - 3*q + 2)/(q^2 - 2*q + 1) [q-order = n >= 2]
+        q^{2j}:   coeff (-q^3 + 4*q^2 - 4*q)/(q^2 - 2*q + 1) [q-order = 2j+1 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = 2 ,  K = 2
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = -1/2*q + 1
+   CHECK:  from A directly val(A)=0, lc=2 (=k,a: True);  val(C)=2j+1(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=1, n-2j>=2} ;  used down to d=n-2j=4  =>  inside cone (OK)
+......................................................................
+m=9j+6     [all j         ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (1/8*q^3 - 3/8*q^2 + 3/8*q - 1/4)/(q^2 - 2*q + 1)        [q-order = 0 <= 1]
+        q^{n-2j}: coeff (1/8*q^4 - 5/8*q^3 + 9/8*q^2 - q + 1/2)/(q^4 - 2*q^3 + q^2) [q-order = n-2j-2 >= 2]
+        q^{n}:    coeff (1/8*q^3 - 3/8*q^2 + 3/8*q - 1/4)/(q^2 - 2*q + 1) [q-order = n >= 2]
+        q^{2j}:   coeff 1/8*q^3/(q^2 - 2*q + 1)    [q-order = 2j+3 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = -1/4 ,  K = -1/4
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = -1/2*q + 1
+   CHECK:  from A directly val(A)=0, lc=-1/4 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=0, n-2j>=4} ;  used down to d=n-2j=4  =>  inside cone (OK)
+......................................................................
+m=9j+7     [all j         ]                              Type (S)
+   A = P(q)*mu :   P(q) = 2*q^2 - 2*q + 2 ,   mu = q^{n-2j-4}   (P(0)=2 != 0)
+   Step 1:  k = val(mu) = n-2j-4 ,   a = P(0) = 2 ,   so K = a*q^k = 2*q^{n-2j-4}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q^2*q^{2j} + q^n)/(q^3*q^{2j} - q^2*q^{2j})
+   CHECK:  from A directly val(A)=n-2j-4, lc=2 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=0, n-2j>=3} ;  used down to d=n-2j=4  =>  inside cone (OK)
+......................................................................
+m=9j+8     [all j         ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (q^2 - q + 1)/(q - 1)        [q-order = 0 <= 1]
+        q^{n-2j}: coeff (-q^2 + q - 1)/q^2         [q-order = n-2j-2 >= 2]
+        q^{n}:    coeff (-q^2 + q - 1)/(q - 1)     [q-order = n >= 2]
+        q^{2j}:   coeff q^2                        [q-order = 2j+2 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = -1 ,  K = -1
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = 1
+   CHECK:  from A directly val(A)=0, lc=-1 (=k,a: True);  val(C)=n-2j-2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=0, n-2j>=3} ;  used down to d=n-2j=4  =>  inside cone (OK)
+......................................................................
+m=9j+9     [all j         ]                              Type (S)
+   A = P(q)*mu :   P(q) = 1 ,   mu = q^{2j}   (P(0)=1 != 0)
+   Step 1:  k = val(mu) = 2j ,   a = P(0) = 1 ,   so K = a*q^k = q^{2j}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (q^2*q^{2j} - q^2 + q - 1)/(q - 1)
+   CHECK:  from A directly val(A)=2j, lc=1 (=k,a: True);  val(C)=n-2j(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=0, n-2j>=1} ;  used down to d=n-2j=4  =>  inside cone (OK)
+
+======================================================================
+=== Even n, Pass 3   (22 tuples) ===
+======================================================================
+......................................................................
+m=9j+1     [j=0           ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (-q^4 - q)/(q - 1)        [q-order = 1 <= 1]
+        q^{n}:    coeff (q^2 + 1)/(q - 1)          [q-order = n >= 2]
+   Step 1:  least-order term is in A0  =>  k = 1 ,  a = lc(A0) = 1 ,  K = q
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = q^2 - q + 1
+   CHECK:  from A directly val(A)=1, lc=1 (=k,a: True);  val(C)=n-2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=3} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+1     [j=1           ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (-1/8*q^3 - 1/8*q^2 + 1/8*q - 1/4)/(q - 1)        [q-order = 0 <= 1]
+        q^{n}:    coeff (-1/8*q^3 + 1/4*q^2 - 1/4*q + 1/2)/(q^2 - q) [q-order = n-1 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = 1/4 ,  K = 1/4
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = -1/2*q + 1
+   CHECK:  from A directly val(A)=0, lc=1/4 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=3} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+1     [j notin {0,1} ]                              Type (S)
+   A = P(q)*mu :   P(q) = 2 ,   mu = q^{n-2j-1}   (P(0)=2 != 0)
+   Step 1:  k = val(mu) = n-2j-1 ,   a = P(0) = 2 ,   so K = a*q^k = 2*q^{n-2j-1}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q^2*q^{2j} + q*q^{2j} + q*q^n - q^{2j})/(q*q^{2j} - q^{2j})
+   CHECK:  from A directly val(A)=n-2j-1, lc=2 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=2, n-2j>=1} ;  used down to d=n-2j=2  =>  inside cone (OK)
+......................................................................
+m=9j+2     [j=0           ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (q^4 - 2*q^3 + 3*q^2 - 2*q + 1)/(q - 1)        [q-order = 0 <= 1]
+        q^{n}:    coeff (-q^3 + q^2 - 2*q + 1)/(q^2 - q) [q-order = n-1 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = -1 ,  K = -1
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = q + 1
+   CHECK:  from A directly val(A)=0, lc=-1 (=k,a: True);  val(C)=3(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=3} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+2     [j=1           ]                              Type (S)
+   A = P(q)*mu :   P(q) = 2 ,   mu = q^{n-3}   (P(0)=2 != 0)
+   Step 1:  k = val(mu) = n-3 ,   a = P(0) = 2 ,   so K = a*q^k = 2*q^{n-3}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q^3 + q^2 - q + q^n)/(q^2 - q)
+   CHECK:  from A directly val(A)=n-3, lc=2 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=3} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+2     [j notin {0,1} ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (q^2 - q + 1)/(q - 1)        [q-order = 0 <= 1]
+        q^{n-2j}: coeff -q                         [q-order = n-2j+1 >= 2]
+        q^{n}:    coeff (-q^2 + q - 1)/(q - 1)     [q-order = n >= 2]
+        q^{2j}:   coeff (q^2 - q + 1)/q            [q-order = 2j-1 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = -1 ,  K = -1
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = 1
+   CHECK:  from A directly val(A)=0, lc=-1 (=k,a: True);  val(C)=n-2j+1(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=2, n-2j>=0} ;  used down to d=n-2j=2  =>  inside cone (OK)
+......................................................................
+m=9j+3     [j=0           ]                              Type (S)
+   A = P(q)*mu :   P(q) = -1 ,   mu = q^{n-3}   (P(0)=-1 != 0)
+   Step 1:  k = val(mu) = n-3 ,   a = P(0) = -1 ,   so K = a*q^k = -q^{n-3}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q^3 + q^2 - q + q^n)/(q^2 - q)
+   CHECK:  from A directly val(A)=n-3, lc=-1 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=3} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+3     [j=1           ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (q^4 - 2*q^3 + 3*q^2 - 2*q + 1)/(q - 1)        [q-order = 0 <= 1]
+        q^{n}:    coeff (-q^3 + q^2 - 2*q + 1)/(q^2 - q) [q-order = n-1 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = -1 ,  K = -1
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = q + 1
+   CHECK:  from A directly val(A)=0, lc=-1 (=k,a: True);  val(C)=n-1(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=2} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+3     [j notin {0,1} ]                              Type (S)
+   A = P(q)*mu :   P(q) = q^2 - q + 1 ,   mu = q^{2j-3}   (P(0)=1 != 0)
+   Step 1:  k = val(mu) = 2j-3 ,   a = P(0) = 1 ,   so K = a*q^k = q^{2j-3}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q + q^{2j})/(q^2 - q)
+   CHECK:  from A directly val(A)=2j-3, lc=1 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=2, n-2j>=0} ;  used down to d=n-2j=2  =>  inside cone (OK)
+......................................................................
+m=9j+4     [j=0           ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (-q^3 - q^2 + q - 2)/(q - 1)        [q-order = 0 <= 1]
+        q^{n}:    coeff (-q^3 + 2*q^2 - 2*q + 4)/(q^2 - q) [q-order = n-1 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = 2 ,  K = 2
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = -1/2*q + 1
+   CHECK:  from A directly val(A)=0, lc=2 (=k,a: True);  val(C)=n-1(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=2} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+4     [j=1           ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (q^4 + q)/(q - 1)        [q-order = 1 <= 1]
+        q^{n}:    coeff (-q^2 - 1)/(q - 1)         [q-order = n >= 2]
+   Step 1:  least-order term is in A0  =>  k = 1 ,  a = lc(A0) = -1 ,  K = -q
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = q^2 - q + 1
+   CHECK:  from A directly val(A)=1, lc=-1 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=4} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+4     [j notin {0,1} ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (q^3 - q^2 + q)/(q^2 - 2*q + 1)        [q-order = 1 <= 1]
+        q^{n-2j}: coeff -q^2/(q^2 - 2*q + 1)       [q-order = n-2j+2 >= 2]
+        q^{n}:    coeff (q^3 - q^2 + q)/(q^2 - 2*q + 1) [q-order = n+1 >= 2]
+        q^{2j}:   coeff (-q^3 + q^2 - q)/(q^2 - 2*q + 1) [q-order = 2j+1 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 1 ,  a = lc(A0) = 1 ,  K = q
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = -q + 1
+   CHECK:  from A directly val(A)=1, lc=1 (=k,a: True);  val(C)=2j-1(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=2, n-2j>=2} ;  used down to d=n-2j=2  =>  inside cone (OK)
+......................................................................
+m=9j+5     [j=0           ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (1/8*q^3 - 3/8*q^2 + 3/8*q - 1/4)/(q - 1)        [q-order = 0 <= 1]
+        q^{n}:    coeff (1/8*q^2 - 1/4*q + 1/4)/(q - 1) [q-order = n >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = 1/4 ,  K = 1/4
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = 1/2*q + 1
+   CHECK:  from A directly val(A)=0, lc=1/4 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=2} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+5     [j notin {0}   ]                              Type (S)
+   A = P(q)*mu :   P(q) = 1 ,   mu = q^{n-2j-2}   (P(0)=1 != 0)
+   Step 1:  k = val(mu) = n-2j-2 ,   a = P(0) = 1 ,   so K = a*q^k = q^{n-2j-2}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q^2*q^{2j} + q*q^{2j} - q^{2j} + q^n)/(q*q^{2j} - q^{2j})
+   CHECK:  from A directly val(A)=n-2j-2, lc=1 (=k,a: True);  val(C)=3(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=1, n-2j>=2} ;  used down to d=n-2j=2  =>  inside cone (OK)
+......................................................................
+m=9j+6     [j=0           ]                              Type (S)
+   A = P(q)*mu :   P(q) = 2 ,   mu = q^{n-2}   (P(0)=2 != 0)
+   Step 1:  k = val(mu) = n-2 ,   a = P(0) = 2 ,   so K = a*q^k = 2*q^{n-2}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q^2 + q + q^n - 1)/(q - 1)
+   CHECK:  from A directly val(A)=n-2, lc=2 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=2} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+6     [j notin {0}   ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (-q^2 + q - 1)/(q - 1)        [q-order = 0 <= 1]
+        q^{n-2j}: coeff -1                         [q-order = n-2j >= 2]
+        q^{n}:    coeff (q^2 - q + 1)/(q - 1)      [q-order = n >= 2]
+        q^{2j}:   coeff q^2 - q + 1                [q-order = 2j >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = 1 ,  K = 1
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = 1
+   CHECK:  from A directly val(A)=0, lc=1 (=k,a: True);  val(C)=n-2j(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=1, n-2j>=1} ;  used down to d=n-2j=2  =>  inside cone (OK)
+......................................................................
+m=9j+7     [j=0           ]                              Type (S)
+   A = P(q)*mu :   P(q) = 1 ,   mu = q^{n+1}   (P(0)=1 != 0)
+   Step 1:  k = val(mu) = n+1 ,   a = P(0) = 1 ,   so K = a*q^k = q^{n+1}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q^2*q^n - q^2 + 3*q*q^n + q - q^n - 1)/(q - 1)
+   CHECK:  from A directly val(A)=n+1, lc=1 (=k,a: True);  val(C)=n(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=2} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+7     [j notin {0}   ]                              Type (S)
+   A = P(q)*mu :   P(q) = -q^2 + q - 1 ,   mu = q^{2j-2}   (P(0)=-1 != 0)
+   Step 1:  k = val(mu) = 2j-2 ,   a = P(0) = -1 ,   so K = a*q^k = -q^{2j-2}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (q^{2j} - 1)/(q - 1)
+   CHECK:  from A directly val(A)=2j-2, lc=-1 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=1, n-2j>=0} ;  used down to d=n-2j=2  =>  inside cone (OK)
+......................................................................
+m=9j+8     [j=0           ]                              Type (S)
+   A = P(q)*mu :   P(q) = 1 ,   mu = q^{n-2}   (P(0)=1 != 0)
+   Step 1:  k = val(mu) = n-2 ,   a = P(0) = 1 ,   so K = a*q^k = q^{n-2}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q^2 + q + q^n - 1)/(q - 1)
+   CHECK:  from A directly val(A)=n-2, lc=1 (=k,a: True);  val(C)=n+3(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=2} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+8     [j notin {0}   ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (-q^3 + 3*q^2 - 3*q + 2)/(q^2 - 2*q + 1)        [q-order = 0 <= 1]
+        q^{n-2j}: coeff -q/(q^2 - 2*q + 1)         [q-order = n-2j+1 >= 2]
+        q^{n}:    coeff (-q^3 + 3*q^2 - 3*q + 2)/(q^2 - 2*q + 1) [q-order = n >= 2]
+        q^{2j}:   coeff (-q^4 + 5*q^3 - 9*q^2 + 8*q - 4)/(q^2 - 2*q + 1) [q-order = 2j >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = 2 ,  K = 2
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = -1/2*q + 1
+   CHECK:  from A directly val(A)=0, lc=2 (=k,a: True);  val(C)=2j(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=1, n-2j>=1} ;  used down to d=n-2j=2  =>  inside cone (OK)
+......................................................................
+m=9j+9     [j=0           ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (q^3 - 3*q^2 + 3*q - 2)/(q - 1)        [q-order = 0 <= 1]
+        q^{n}:    coeff (q^2 - 2*q + 2)/(q - 1)    [q-order = n >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = 2 ,  K = 2
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = 1/2*q + 1
+   CHECK:  from A directly val(A)=0, lc=2 (=k,a: True);  val(C)=n(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=1} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+9     [j notin {0} (->Pass2)]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (1/8*q^3 - 3/8*q^2 + 3/8*q - 1/4)/(q^2 - 2*q + 1)        [q-order = 0 <= 1]
+        q^{n-2j}: coeff (1/8*q^2 - 1/2*q + 1/2)/(q^3 - 2*q^2 + q) [q-order = n-2j-1 >= 2]
+        q^{n}:    coeff (1/8*q^3 - 3/8*q^2 + 3/8*q - 1/4)/(q^2 - 2*q + 1) [q-order = n >= 2]
+        q^{2j}:   coeff (1/8*q^4 - 1/8*q^3 + 1/8*q^2)/(q^2 - 2*q + 1) [q-order = 2j+2 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = -1/4 ,  K = -1/4
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = -1/2*q + 1
+   CHECK:  from A directly val(A)=0, lc=-1/4 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=1, n-2j>=3} ;  used down to d=n-2j=4  =>  inside cone (OK)
+
+======================================================================
+=== Odd n, Pass 1  (= Even Pass 1 formulas, odd boundary)   (15 tuples) ===
+======================================================================
+......................................................................
+m=9j+1     [j=0           ]                              Type (S)
+   A = P(q)*mu :   P(q) = -1 ,   mu = q^{n-2}   (P(0)=-1 != 0)
+   Step 1:  k = val(mu) = n-2 ,   a = P(0) = -1 ,   so K = a*q^k = -q^{n-2}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q^2 + q + q^n - 1)/(q - 1)
+   CHECK:  from A directly val(A)=n-2, lc=-1 (=k,a: True);  val(C)=n+3(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=2} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+1     [j notin {0}   ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (-q^3 + 3*q^2 - 3*q + 2)/(q^2 - 2*q + 1)        [q-order = 0 <= 1]
+        q^{n-2j}: coeff -q/(q^2 - 2*q + 1)         [q-order = n-2j+1 >= 2]
+        q^{n}:    coeff (-q^3 + 3*q^2 - 3*q + 2)/(q^2 - 2*q + 1) [q-order = n >= 2]
+        q^{2j}:   coeff (-q^4 + 5*q^3 - 9*q^2 + 8*q - 4)/(q^2 - 2*q + 1) [q-order = 2j >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = 2 ,  K = 2
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = -1/2*q + 1
+   CHECK:  from A directly val(A)=0, lc=2 (=k,a: True);  val(C)=2j(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=1, n-2j>=1} ;  used down to d=n-2j=3  =>  inside cone (OK)
+......................................................................
+m=9j+2     [j=0           ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (q^3 - 3*q^2 + 3*q - 2)/(q - 1)        [q-order = 0 <= 1]
+        q^{n}:    coeff (q^2 - 2*q + 2)/(q - 1)    [q-order = n >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = 2 ,  K = 2
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = 1/2*q + 1
+   CHECK:  from A directly val(A)=0, lc=2 (=k,a: True);  val(C)=n(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=1} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+2     [j notin {0}   ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (1/8*q^3 - 3/8*q^2 + 3/8*q - 1/4)/(q^2 - 2*q + 1)        [q-order = 0 <= 1]
+        q^{n-2j}: coeff (1/8*q^2 - 1/2*q + 1/2)/(q^3 - 2*q^2 + q) [q-order = n-2j-1 >= 2]
+        q^{n}:    coeff (1/8*q^3 - 3/8*q^2 + 3/8*q - 1/4)/(q^2 - 2*q + 1) [q-order = n >= 2]
+        q^{2j}:   coeff (1/8*q^4 - 1/8*q^3 + 1/8*q^2)/(q^2 - 2*q + 1) [q-order = 2j+2 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = -1/4 ,  K = -1/4
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = -1/2*q + 1
+   CHECK:  from A directly val(A)=0, lc=-1/4 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=1, n-2j>=3} ;  used down to d=n-2j=3  =>  inside cone (OK)
+......................................................................
+m=9j+3     [j=0           ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (-1/8*q^3 - 1/8*q^2 + 1/8*q - 1/4)/(q - 1)        [q-order = 0 <= 1]
+        q^{n}:    coeff (-1/8*q^3 + 1/4*q^2 - 1/4*q + 1/2)/(q^2 - q) [q-order = n-1 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = 1/4 ,  K = 1/4
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = -1/2*q + 1
+   CHECK:  from A directly val(A)=0, lc=1/4 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=3} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+3     [j notin {0}   ]                              Type (S)
+   A = P(q)*mu :   P(q) = 2 ,   mu = q^{n-2j-3}   (P(0)=2 != 0)
+   Step 1:  k = val(mu) = n-2j-3 ,   a = P(0) = 2 ,   so K = a*q^k = 2*q^{n-2j-3}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q^3*q^{2j} + q^2*q^{2j} - q*q^{2j} + q^n)/(q^2*q^{2j} - q*q^{2j})
+   CHECK:  from A directly val(A)=n-2j-3, lc=2 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=1, n-2j>=3} ;  used down to d=n-2j=3  =>  inside cone (OK)
+......................................................................
+m=9j+4     [j=0           ]                              Type (S)
+   A = P(q)*mu :   P(q) = 2 ,   mu = q^{n-3}   (P(0)=2 != 0)
+   Step 1:  k = val(mu) = n-3 ,   a = P(0) = 2 ,   so K = a*q^k = 2*q^{n-3}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q^3 + q^2 - q + q^n)/(q^2 - q)
+   CHECK:  from A directly val(A)=n-3, lc=2 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=3} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+4     [j notin {0}   ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (q^2 - q + 1)/(q - 1)        [q-order = 0 <= 1]
+        q^{n-2j}: coeff -1/q                       [q-order = n-2j-1 >= 2]
+        q^{n}:    coeff (-q^2 + q - 1)/(q - 1)     [q-order = n >= 2]
+        q^{2j}:   coeff q^3 - q^2 + q              [q-order = 2j+1 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = -1 ,  K = -1
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = 1
+   CHECK:  from A directly val(A)=0, lc=-1 (=k,a: True);  val(C)=n-2j-1(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=1, n-2j>=2} ;  used down to d=n-2j=3  =>  inside cone (OK)
+......................................................................
+m=9j+5     [j=0           ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (q^4 - 2*q^3 + 3*q^2 - 2*q + 1)/(q - 1)        [q-order = 0 <= 1]
+        q^{n}:    coeff (-q^3 + q^2 - 2*q + 1)/(q^2 - q) [q-order = n-1 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = -1 ,  K = -1
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = q + 1
+   CHECK:  from A directly val(A)=0, lc=-1 (=k,a: True);  val(C)=n-1(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=2} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+5     [j notin {0}   ]                              Type (S)
+   A = P(q)*mu :   P(q) = q^2 - q + 1 ,   mu = q^{2j-1}   (P(0)=1 != 0)
+   Step 1:  k = val(mu) = 2j-1 ,   a = P(0) = 1 ,   so K = a*q^k = q^{2j-1}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (q*q^{2j} - 1)/(q - 1)
+   CHECK:  from A directly val(A)=2j-1, lc=1 (=k,a: True);  val(C)=n-2j+1(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=1, n-2j>=0} ;  used down to d=n-2j=3  =>  inside cone (OK)
+......................................................................
+m=9j+6     [j=0           ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (q^4 + q)/(q - 1)        [q-order = 1 <= 1]
+        q^{n}:    coeff (-q^2 - 1)/(q - 1)         [q-order = n >= 2]
+   Step 1:  least-order term is in A0  =>  k = 1 ,  a = lc(A0) = -1 ,  K = -q
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = q^2 - q + 1
+   CHECK:  from A directly val(A)=1, lc=-1 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=4} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+6     [j notin {0}   ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (q^3 - q^2 + q)/(q^2 - 2*q + 1)        [q-order = 1 <= 1]
+        q^{n-2j}: coeff -1/(q^2 - 2*q + 1)         [q-order = n-2j >= 2]
+        q^{n}:    coeff (q^3 - q^2 + q)/(q^2 - 2*q + 1) [q-order = n+1 >= 2]
+        q^{2j}:   coeff (-q^5 + q^4 - q^3)/(q^2 - 2*q + 1) [q-order = 2j+3 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 1 ,  a = lc(A0) = 1 ,  K = q
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = -q + 1
+   CHECK:  from A directly val(A)=1, lc=1 (=k,a: True);  val(C)=2j+1(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=1, n-2j>=4} ;  used down to d=n-2j=5  =>  inside cone (OK)
+......................................................................
+m=9j+7     [all j         ]                              Type (S)
+   A = P(q)*mu :   P(q) = 1 ,   mu = q^{n-2j-4}   (P(0)=1 != 0)
+   Step 1:  k = val(mu) = n-2j-4 ,   a = P(0) = 1 ,   so K = a*q^k = q^{n-2j-4}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q^4*q^{2j} + q^3*q^{2j} - q^2*q^{2j} + q^n)/(q^3*q^{2j} - q^2*q^{2j})
+   CHECK:  from A directly val(A)=n-2j-4, lc=1 (=k,a: True);  val(C)=3(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=0, n-2j>=4} ;  used down to d=n-2j=5  =>  inside cone (OK)
+......................................................................
+m=9j+8     [all j         ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (-q^2 + q - 1)/(q - 1)        [q-order = 0 <= 1]
+        q^{n-2j}: coeff -1/q^2                     [q-order = n-2j-2 >= 2]
+        q^{n}:    coeff (q^2 - q + 1)/(q - 1)      [q-order = n >= 2]
+        q^{2j}:   coeff q^4 - q^3 + q^2            [q-order = 2j+2 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = 1 ,  K = 1
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = 1
+   CHECK:  from A directly val(A)=0, lc=1 (=k,a: True);  val(C)=n-2j-2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=0, n-2j>=3} ;  used down to d=n-2j=5  =>  inside cone (OK)
+......................................................................
+m=9j+9     [all j         ]                              Type (S)
+   A = P(q)*mu :   P(q) = -q^2 + q - 1 ,   mu = q^{2j}   (P(0)=-1 != 0)
+   Step 1:  k = val(mu) = 2j ,   a = P(0) = -1 ,   so K = a*q^k = -q^{2j}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (q^2*q^{2j} - 1)/(q - 1)
+   CHECK:  from A directly val(A)=2j, lc=-1 (=k,a: True);  val(C)=n-2j(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=0, n-2j>=1} ;  used down to d=n-2j=5  =>  inside cone (OK)
+
+======================================================================
+=== Odd n, Pass 2   (12 tuples) ===
+======================================================================
+......................................................................
+m=9j+1     [j=0           ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = -q/(q - 1)        [q-order = 1 <= 1]
+        q^{n}:    coeff (q^2 - q + 1)/(q - 1)      [q-order = n >= 2]
+   Step 1:  least-order term is in A0  =>  k = 1 ,  a = lc(A0) = 1 ,  K = q
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = q^2 - q + 1
+   CHECK:  from A directly val(A)=1, lc=1 (=k,a: True);  val(C)=n-2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=3} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+1     [j notin {0}   ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (q^2 - q + 1)/(q - 1)        [q-order = 0 <= 1]
+        q^{n-2j}: coeff (-q^2 + q - 1)/q           [q-order = n-2j-1 >= 2]
+        q^{n}:    coeff (-q^2 + q - 1)/(q - 1)     [q-order = n >= 2]
+        q^{2j}:   coeff q                          [q-order = 2j+1 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = -1 ,  K = -1
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = 1
+   CHECK:  from A directly val(A)=0, lc=-1 (=k,a: True);  val(C)=n-2j-1(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=1, n-2j>=2} ;  used down to d=n-2j=3  =>  inside cone (OK)
+......................................................................
+m=9j+2     [j=0           ]                              Type (S)
+   A = P(q)*mu :   P(q) = -q^2 + q - 1 ,   mu = q^{n-1}   (P(0)=-1 != 0)
+   Step 1:  k = val(mu) = n-1 ,   a = P(0) = -1 ,   so K = a*q^k = -q^{n-1}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (2*q*q^n - q^n - 1)/(q - 1)
+   CHECK:  from A directly val(A)=n-1, lc=-1 (=k,a: True);  val(C)=n+2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=1} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+2     [j notin {0}   ]                              Type (S)
+   A = P(q)*mu :   P(q) = 1 ,   mu = q^{2j-1}   (P(0)=1 != 0)
+   Step 1:  k = val(mu) = 2j-1 ,   a = P(0) = 1 ,   so K = a*q^k = q^{2j-1}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q^2 + q*q^{2j} + q - 1)/(q - 1)
+   CHECK:  from A directly val(A)=2j-1, lc=1 (=k,a: True);  val(C)=n-2j+1(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=1, n-2j>=0} ;  used down to d=n-2j=3  =>  inside cone (OK)
+......................................................................
+m=9j+3     [j=0           ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = q/(q - 1)        [q-order = 1 <= 1]
+        q^{n}:    coeff (-q^2 + q - 1)/(q - 1)     [q-order = n >= 2]
+   Step 1:  least-order term is in A0  =>  k = 1 ,  a = lc(A0) = -1 ,  K = -q
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = q^2 - q + 1
+   CHECK:  from A directly val(A)=1, lc=-1 (=k,a: True);  val(C)=n+1(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=4} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+m=9j+3     [j notin {0}   ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (q^3 - q^2 + q)/(q^2 - 2*q + 1)        [q-order = 1 <= 1]
+        q^{n-2j}: coeff (-q^2 + q - 1)/(q^2 - 2*q + 1) [q-order = n-2j >= 2]
+        q^{n}:    coeff (q^3 - q^2 + q)/(q^2 - 2*q + 1) [q-order = n+1 >= 2]
+        q^{2j}:   coeff -q^3/(q^2 - 2*q + 1)       [q-order = 2j+3 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 1 ,  a = lc(A0) = 1 ,  K = q
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = -q + 1
+   CHECK:  from A directly val(A)=1, lc=1 (=k,a: True);  val(C)=2j+1(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=1, n-2j>=4} ;  used down to d=n-2j=5  =>  inside cone (OK)
+......................................................................
+m=9j+4     [all j         ]                              Type (S)
+   A = P(q)*mu :   P(q) = q^2 - q + 1 ,   mu = q^{n-2j-4}   (P(0)=1 != 0)
+   Step 1:  k = val(mu) = n-2j-4 ,   a = P(0) = 1 ,   so K = a*q^k = q^{n-2j-4}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q^2*q^{2j} + q^n)/(q^3*q^{2j} - q^2*q^{2j})
+   CHECK:  from A directly val(A)=n-2j-4, lc=1 (=k,a: True);  val(C)=3(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=0, n-2j>=2} ;  used down to d=n-2j=5  =>  inside cone (OK)
+......................................................................
+m=9j+5     [all j         ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (-q^2 + q - 1)/(q - 1)        [q-order = 0 <= 1]
+        q^{n-2j}: coeff (-q^2 + q - 1)/q^2         [q-order = n-2j-2 >= 2]
+        q^{n}:    coeff (q^2 - q + 1)/(q - 1)      [q-order = n >= 2]
+        q^{2j}:   coeff q^2                        [q-order = 2j+2 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = 1 ,  K = 1
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = 1
+   CHECK:  from A directly val(A)=0, lc=1 (=k,a: True);  val(C)=n-2j-2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=0, n-2j>=3} ;  used down to d=n-2j=5  =>  inside cone (OK)
+......................................................................
+m=9j+6     [all j         ]                              Type (S)
+   A = P(q)*mu :   P(q) = -1 ,   mu = q^{2j}   (P(0)=-1 != 0)
+   Step 1:  k = val(mu) = 2j ,   a = P(0) = -1 ,   so K = a*q^k = -q^{2j}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (q^2*q^{2j} - q^2 + q - 1)/(q - 1)
+   CHECK:  from A directly val(A)=2j, lc=-1 (=k,a: True);  val(C)=n-2j(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=0, n-2j>=1} ;  used down to d=n-2j=5  =>  inside cone (OK)
+......................................................................
+m=9j+7     [all j         ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (-q^3 + 3*q^2 - 3*q + 2)/(q^2 - 2*q + 1)        [q-order = 0 <= 1]
+        q^{n-2j}: coeff (-q^2 + q - 1)/(q^3 - 2*q^2 + q) [q-order = n-2j-1 >= 2]
+        q^{n}:    coeff (-q^3 + 3*q^2 - 3*q + 2)/(q^2 - 2*q + 1) [q-order = n >= 2]
+        q^{2j}:   coeff (-q^4 + 4*q^3 - 4*q^2)/(q^2 - 2*q + 1) [q-order = 2j+2 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = 2 ,  K = 2
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = -1/2*q + 1
+   CHECK:  from A directly val(A)=0, lc=2 (=k,a: True);  val(C)=2j+2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=0, n-2j>=3} ;  used down to d=n-2j=5  =>  inside cone (OK)
+......................................................................
+m=9j+8     [all j         ]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (1/8*q^3 - 3/8*q^2 + 3/8*q - 1/4)/(q^2 - 2*q + 1)        [q-order = 0 <= 1]
+        q^{n-2j}: coeff (1/8*q^4 - 5/8*q^3 + 9/8*q^2 - q + 1/2)/(q^5 - 2*q^4 + q^3) [q-order = n-2j-3 >= 2]
+        q^{n}:    coeff (1/8*q^3 - 3/8*q^2 + 3/8*q - 1/4)/(q^2 - 2*q + 1) [q-order = n >= 2]
+        q^{2j}:   coeff 1/8*q^4/(q^2 - 2*q + 1)    [q-order = 2j+4 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = -1/4 ,  K = -1/4
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = -1/2*q + 1
+   CHECK:  from A directly val(A)=0, lc=-1/4 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=0, n-2j>=5} ;  used down to d=n-2j=5  =>  inside cone (OK)
+......................................................................
+m=9j+9     [all j         ]                              Type (S)
+   A = P(q)*mu :   P(q) = 2*q^2 - 2*q + 2 ,   mu = q^{n-2j-5}   (P(0)=2 != 0)
+   Step 1:  k = val(mu) = n-2j-5 ,   a = P(0) = 2 ,   so K = a*q^k = 2*q^{n-2j-5}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q^3*q^{2j} + q^n)/(q^4*q^{2j} - q^3*q^{2j})
+   CHECK:  from A directly val(A)=n-2j-5, lc=2 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {j>=0, n-2j>=4} ;  used down to d=n-2j=5  =>  inside cone (OK)
+
+======================================================================
+=== Odd n, Bridge   (7 tuples) ===
+======================================================================
+......................................................................
+bridge #1  [bridge (j-free)]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (q^4 - 2*q^3 + 3*q^2 - 2*q + 1)/(q - 1)        [q-order = 0 <= 1]
+        q^{n}:    coeff (-q^3 + q^2 - 2*q + 1)/(q^2 - q) [q-order = n-1 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = -1 ,  K = -1
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = q + 1
+   CHECK:  from A directly val(A)=0, lc=-1 (=k,a: True);  val(C)=3(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=3} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+bridge #2  [bridge (j-free)]                              Type (S)
+   A = P(q)*mu :   P(q) = -1 ,   mu = q^{n-3}   (P(0)=-1 != 0)
+   Step 1:  k = val(mu) = n-3 ,   a = P(0) = -1 ,   so K = a*q^k = -q^{n-3}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q^3 + q^2 - q + q^n)/(q^2 - q)
+   CHECK:  from A directly val(A)=n-3, lc=-1 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=3} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+bridge #3  [bridge (j-free)]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (-q^3 - q^2 + q - 2)/(q - 1)        [q-order = 0 <= 1]
+        q^{n}:    coeff (-q^3 + 2*q^2 - 2*q + 4)/(q^2 - q) [q-order = n-1 >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = 2 ,  K = 2
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = -1/2*q + 1
+   CHECK:  from A directly val(A)=0, lc=2 (=k,a: True);  val(C)=n-1(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=2} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+bridge #4  [bridge (j-free)]                              Type (M)
+   A = A0 + (higher blocks),   A0 the q-only part:
+        A0 = (1/8*q^3 - 3/8*q^2 + 3/8*q - 1/4)/(q - 1)        [q-order = 0 <= 1]
+        q^{n}:    coeff (1/8*q^2 - 1/4*q + 1/4)/(q - 1) [q-order = n >= 2]
+   Step 1:  least-order term is in A0  =>  k = 0 ,  a = lc(A0) = 1/4 ,  K = 1/4
+   Step 2:  val(C)>=2 so C-term drops;  D = [ a*q^k*B/A ]_{<= k+1} = 1/2*q + 1
+   CHECK:  from A directly val(A)=0, lc=1/4 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=2} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+bridge #5  [bridge (j-free)]                              Type (S)
+   A = P(q)*mu :   P(q) = 2 ,   mu = q^{n-2}   (P(0)=2 != 0)
+   Step 1:  k = val(mu) = n-2 ,   a = P(0) = 2 ,   so K = a*q^k = 2*q^{n-2}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q^2 + q + q^n - 1)/(q - 1)
+   CHECK:  from A directly val(A)=n-2, lc=2 (=k,a: True);  val(C)=2(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=2} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+bridge #6  [bridge (j-free)]                              Type (S)
+   A = P(q)*mu :   P(q) = 1 ,   mu = q^{n+1}   (P(0)=1 != 0)
+   Step 1:  k = val(mu) = n+1 ,   a = P(0) = 1 ,   so K = a*q^k = q^{n+1}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q^2*q^n - q^2 + 3*q*q^n + q - q^n - 1)/(q - 1)
+   CHECK:  from A directly val(A)=n+1, lc=1 (=k,a: True);  val(C)=n(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=2} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+......................................................................
+bridge #7  [bridge (j-free)]                              Type (S)
+   A = P(q)*mu :   P(q) = 1 ,   mu = q^{n-2}   (P(0)=1 != 0)
+   Step 1:  k = val(mu) = n-2 ,   a = P(0) = 1 ,   so K = a*q^k = q^{n-2}
+   Step 2:  q^k/A = 1/P,  so D = [ a*B/P ]_{<= k+1} = (-q^2 + q + q^n - 1)/(q - 1)
+   CHECK:  from A directly val(A)=n-2, lc=1 (=k,a: True);  val(C)=n+3(>=2);
+           val( a*q^k*B/A - a*q^k*C/B - D ) >= k+2 : True ;  deg_q D <= k+1 : True
+   cone {n>=2} ;  (used at n>=4 even / n>=5 odd; n=1,2,3 are base cases)
+
+######################################################################
+RESULT: STEPS 1 & 2 PROVED UNIFORMLY for ALL (n,j).
+  Every pass-table tuple, walked in table order with its case condition;
+  each check is an affine inequality in (n,j) over its cone -- n,j stay
+  symbolic, no value is ever substituted.  Coverage (least used d >= N)
+  is a constant in n, also checked exactly.
+######################################################################
