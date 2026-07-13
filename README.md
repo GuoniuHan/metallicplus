@@ -1,4 +1,4 @@
-# The Hankel continued fraction of the (n+2)-shifted q-metallic numbers
+# Hankel determinants for the (n+2)-shifted q-metallic numbers
 
 **Guo-Niu Han** — 2026/07/12
 
