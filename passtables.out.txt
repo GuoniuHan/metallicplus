@@ -1,100 +1,79 @@
-=== EVEN PASS 1 (generic block, all j) ===
-  EVEN PASS 1  r=1 -> r=2    symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 1  r=2 -> r=3    symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 1  r=3 -> r=4    symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 1  r=4 -> r=5    symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 1  r=5 -> r=6    symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 1  r=6 -> r=7    symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 1  r=7 -> r=8    symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 1  r=8 -> r=9    symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 1  r=9 -> r=1(j+1) symbolic Step3: True    concrete NextABC: True   OK
+=== PASS 1 (generic block, all j) ===
+  PASS 1  r=1 -> r=2         symbolic Step3: True   OK
+  PASS 1  r=2 -> r=3         symbolic Step3: True   OK
+  PASS 1  r=3 -> r=4         symbolic Step3: True   OK
+  PASS 1  r=4 -> r=5         symbolic Step3: True   OK
+  PASS 1  r=5 -> r=6         symbolic Step3: True   OK
+  PASS 1  r=6 -> r=7         symbolic Step3: True   OK
+  PASS 1  r=7 -> r=8         symbolic Step3: True   OK
+  PASS 1  r=8 -> r=9         symbolic Step3: True   OK
+  PASS 1  r=9 -> r=1(j+1)    symbolic Step3: True   OK
   --> ALL OK
-=== EVEN PASS 2 (generic block, all j) ===
-  EVEN PASS 2  r=1 -> r=2    symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 2  r=2 -> r=3    symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 2  r=3 -> r=4    symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 2  r=4 -> r=5    symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 2  r=5 -> r=6    symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 2  r=6 -> r=7    symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 2  r=7 -> r=8    symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 2  r=8 -> r=9    symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 2  r=9 -> r=1(j+1) symbolic Step3: True    concrete NextABC: True   OK
+=== PASS 2 rows m=9j+r (generic block, all j) ===
+  PASS 2 rows m=9j+r  r=1 -> r=2 symbolic Step3: True   OK
+  PASS 2 rows m=9j+r  r=2 -> r=3 symbolic Step3: True   OK
+  PASS 2 rows m=9j+r  r=3 -> r=4 symbolic Step3: True   OK
+  PASS 2 rows m=9j+r  r=4 -> r=5 symbolic Step3: True   OK
+  PASS 2 rows m=9j+r  r=5 -> r=6 symbolic Step3: True   OK
+  PASS 2 rows m=9j+r  r=6 -> r=7 symbolic Step3: True   OK
+  PASS 2 rows m=9j+r  r=7 -> r=8 symbolic Step3: True   OK
+  PASS 2 rows m=9j+r  r=8 -> r=9 symbolic Step3: True   OK
+  PASS 2 rows m=9j+r  r=9 -> r=1(j+1) symbolic Step3: True   OK
   --> ALL OK
-=== EVEN PASS 3 (generic block, all j) ===
-  EVEN PASS 3  r=1 -> r=2    symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 3  r=2 -> r=3    symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 3  r=3 -> r=4    symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 3  r=4 -> r=5    symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 3  r=5 -> r=6    symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 3  r=6 -> r=7    symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 3  r=7 -> r=8    symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 3  r=8 -> r=9    symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 3  r=9 -> r=1(j+1) symbolic Step3: True    concrete NextABC: True   OK
+=== PASS 2 odd (index m+5/2) (generic block, all j) ===
+  PASS 2 odd (index m+5/2)  r=1 -> r=2 symbolic Step3: True   OK
+  PASS 2 odd (index m+5/2)  r=2 -> r=3 symbolic Step3: True   OK
+  PASS 2 odd (index m+5/2)  r=3 -> r=4 symbolic Step3: True   OK
+  PASS 2 odd (index m+5/2)  r=4 -> r=5 symbolic Step3: True   OK
+  PASS 2 odd (index m+5/2)  r=5 -> r=6 symbolic Step3: True   OK
+  PASS 2 odd (index m+5/2)  r=6 -> r=7 symbolic Step3: True   OK
+  PASS 2 odd (index m+5/2)  r=7 -> r=8 symbolic Step3: True   OK
+  PASS 2 odd (index m+5/2)  r=8 -> r=9 symbolic Step3: True   OK
+  PASS 2 odd (index m+5/2)  r=9 -> r=1(j+1) symbolic Step3: True   OK
   --> ALL OK
-=== ODD PASS 2 (generic block, all j) ===
-  ODD PASS 2  r=1 -> r=2     symbolic Step3: True    concrete NextABC: True   OK
-  ODD PASS 2  r=2 -> r=3     symbolic Step3: True    concrete NextABC: True   OK
-  ODD PASS 2  r=3 -> r=4     symbolic Step3: True    concrete NextABC: True   OK
-  ODD PASS 2  r=4 -> r=5     symbolic Step3: True    concrete NextABC: True   OK
-  ODD PASS 2  r=5 -> r=6     symbolic Step3: True    concrete NextABC: True   OK
-  ODD PASS 2  r=6 -> r=7     symbolic Step3: True    concrete NextABC: True   OK
-  ODD PASS 2  r=7 -> r=8     symbolic Step3: True    concrete NextABC: True   OK
-  ODD PASS 2  r=8 -> r=9     symbolic Step3: True    concrete NextABC: True   OK
-  ODD PASS 2  r=9 -> r=1(j+1) symbolic Step3: True    concrete NextABC: True   OK
+=== BRIDGE 1 (b1..b8, both parities) ===
+  bridge1 -> bridge2         symbolic Step3: True   OK
+  bridge2 -> bridge3         symbolic Step3: True   OK
+  bridge3 -> bridge4         symbolic Step3: True   OK
+  bridge4 -> bridge5         symbolic Step3: True   OK
+  bridge5 -> bridge6         symbolic Step3: True   OK
+  bridge6 -> bridge7         symbolic Step3: True   OK
+  bridge7 -> bridge8         symbolic Step3: True   OK
+  bridge8 -> pass1(m=2)      symbolic Step3: True   OK
   --> ALL OK
-=== ODD BRIDGE (7 tuples) ===
-  odd  pass2-bd -> bridge1   concrete NextABC: True   OK
-  odd  bridge1 -> bridge2    symbolic Step3: True    concrete NextABC: True   OK
-  odd  bridge2 -> bridge3    symbolic Step3: True    concrete NextABC: True   OK
-  odd  bridge3 -> bridge4    symbolic Step3: True    concrete NextABC: True   OK
-  odd  bridge4 -> bridge5    symbolic Step3: True    concrete NextABC: True   OK
-  odd  bridge5 -> bridge6    symbolic Step3: True    concrete NextABC: True   OK
-  odd  bridge6 -> bridge7    symbolic Step3: True    concrete NextABC: True   OK
-  odd  bridge7 -> pass1(m=2) symbolic Step3: True    concrete NextABC: True   OK
+=== PASS 1 j=0 (j-special chain) ===
+  PASS 1 j=0  s1 -> s2       symbolic Step3: True   OK
+  PASS 1 j=0  s2 -> s3       symbolic Step3: True   OK
+  PASS 1 j=0  s3 -> s4       symbolic Step3: True   OK
+  PASS 1 j=0  s4 -> s5       symbolic Step3: True   OK
+  PASS 1 j=0  s5 -> s6       symbolic Step3: True   OK
+  PASS 1 j=0  s6 -> generic  symbolic Step3: True   OK
   --> ALL OK
-=== EVEN PASS 1 j=0 (j-special chain) ===
-  EVEN PASS 1 j=0  s1 -> s2  symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 1 j=0  s2 -> s3  symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 1 j=0  s3 -> s4  symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 1 j=0  s4 -> s5  symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 1 j=0  s5 -> s6  symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 1 j=0  s6 -> generic symbolic Step3: True    concrete NextABC: True   OK
+=== BRIDGE 2 c1..c5 (n even) (j-special chain) ===
+  BRIDGE 2 c1..c5 (n even)  s1 -> s2 symbolic Step3: True   OK
+  BRIDGE 2 c1..c5 (n even)  s2 -> s3 symbolic Step3: True   OK
+  BRIDGE 2 c1..c5 (n even)  s3 -> s4 symbolic Step3: True   OK
+  BRIDGE 2 c1..c5 (n even)  s4 -> s5 symbolic Step3: True   OK
+  BRIDGE 2 c1..c5 (n even)  s5 -> generic symbolic Step3: True   OK
   --> ALL OK
-=== EVEN PASS 2 j=0 (j-special chain) ===
-  EVEN PASS 2 j=0  s1 -> s2  symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 2 j=0  s2 -> s3  symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 2 j=0  s3 -> s4  symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 2 j=0  s4 -> s5  symbolic Step3: True    concrete NextABC: True   OK
-  EVEN PASS 2 j=0  s5 -> generic symbolic Step3: True    concrete NextABC: True   OK
+=== BRIDGE 3 d1..d3 (n odd) (j-special chain) ===
+  BRIDGE 3 d1..d3 (n odd)  s1 -> s2 symbolic Step3: True   OK
+  BRIDGE 3 d1..d3 (n odd)  s2 -> s3 symbolic Step3: True   OK
+  BRIDGE 3 d1..d3 (n odd)  s3 -> generic symbolic Step3: True   OK
   --> ALL OK
-=== EVEN PASS 3 (j=0 chain r=1..9, then j=1 chain r=1..4) ===
-  even p3 j=0  s1 -> s2      symbolic Step3: True    concrete NextABC: True   OK
-  even p3 j=0  s2 -> s3      symbolic Step3: True    concrete NextABC: True   OK
-  even p3 j=0  s3 -> s4      symbolic Step3: True    concrete NextABC: True   OK
-  even p3 j=0  s4 -> s5      symbolic Step3: True    concrete NextABC: True   OK
-  even p3 j=0  s5 -> s6      symbolic Step3: True    concrete NextABC: True   OK
-  even p3 j=0  s6 -> s7      symbolic Step3: True    concrete NextABC: True   OK
-  even p3 j=0  s7 -> s8      symbolic Step3: True    concrete NextABC: True   OK
-  even p3 j=0  s8 -> s9      symbolic Step3: True    concrete NextABC: True   OK
-  even p3 j=0  s9 -> j=1 s1  symbolic Step3: True    concrete NextABC: True   OK
-  even p3 j=1  s1 -> s2      symbolic Step3: True    concrete NextABC: True   OK
-  even p3 j=1  s2 -> s3      symbolic Step3: True    concrete NextABC: True   OK
-  even p3 j=1  s3 -> s4      symbolic Step3: True    concrete NextABC: True   OK
-  even p3 j=1  s4 -> generic symbolic Step3: True    concrete NextABC: True   OK
-  --> ALL OK
-=== ODD PASS 2 j=0 (j-special chain) ===
-  ODD PASS 2 j=0  s1 -> s2   symbolic Step3: True    concrete NextABC: True   OK
-  ODD PASS 2 j=0  s2 -> s3   symbolic Step3: True    concrete NextABC: True   OK
-  ODD PASS 2 j=0  s3 -> generic symbolic Step3: True    concrete NextABC: True   OK
-  --> ALL OK
+=== JUNCTIONS: leaving a pass  (symbolic) ===
+  EVEN P1 row 2, u=w/q^2  ==  bridge 2, c1       : True  (identity in q, w=q^n)
+  ODD  P1 row 6, u=w/q^3  ==  bridge 3, d1       : True  (identity in q, w=q^n)
+  BOTH pass-2 row 1, u=w/q^2  ==  bridge 1, b1   : True  (identity in q, w=q^n)
 
 ============================================================
-SECTIONS: 9   (all: GREEN)
-Coverage: even passes 1,2,3 (generic + j=0/j=1 specials);
-          odd pass 1 (= even pass 1, formulas identical);
-          odd pass 2 (generic + j=0 specials); odd 7-tuple bridge.
+SECTIONS: 10   (all: GREEN)
+Coverage: pass 1 (generic + j=0 specials), both parities;
+          pass 2 rows m=9j+r (both parities; odd n at half-integer j);
+          bridge 1 (b1..b8), bridge 2 (c1..c5), bridge 3 (d1..d3): j-free, valid for all n.
           Pass<->pass boundaries: the step m=B-1 -> B is inside a pass's
-          generic range (a generic identity above), and junction VALUES
-          pass(k+1)[m=1]==pass(k)[boundary] are checked in junc.sage.
-Each transition: symbolic Step 3 (=> all n,j) + concrete NextABC guard.
+          generic range (a generic identity above), and the junction
+          VALUES pass(k)[boundary]==pass(k+1)[m=1] are symbolic identities.
+Each transition: symbolic Step 3 identity in Q(q,u,w) (=> all n,j).
+Orbit: P1 -> Bridge 2 (n even) / Bridge 3 (n odd) -> P2 -> Bridge 1 -> P1[m=2].
 SUMMARY: ALL GREEN

@@ -2,7 +2,8 @@
   m=1   A=q^2 - q + 1 ; B=2*q^3 - q^2 + q + 1 ; C=q^4 ; K=1 ; D=2*q + 1
   m=2   A=-q^2 ; B=2*q^3 - q^2 + q + 1 ; C=-q^4 + q^3 - q^2 ; K=-q^2 ; D=2*q^3 - q^2 + q + 1
   m=3   A=-q^2 + q - 1 ; B=2*q^3 - q^2 + q + 1 ; C=-q^4 ; K=-1 ; D=2*q + 1
-  invariants: pre-period=1 (exp 1); sum_{period}(k+1)=4 (exp 2n(n+1)=4)  :  OK
+  invariants: pre-period=1 (exp 1); period=2 (exp 2); tuple m=1+P = (-A1,B1,-C1): True;
+              sum_{period}(k+1)=4 (exp 2n(n+1)=4); prod_{i<P} v_i=-1 (exp -1); X(n)=3 = n mod 2: True  :  OK
 
 === n = 2 :  pre-period 1, period 9 ===
   m=1   A=-1 ; B=-q^3 + 2*q^2 + 1 ; C=q^5 ; K=-1 ; D=1
@@ -15,7 +16,8 @@
   m=8   A=2 ; B=q^3 - 2*q^2 + 1 ; C=-1/2*q^5 + 1/2*q^3 - q^2 ; K=2 ; D=1
   m=9   A=q^3 ; B=-q^3 + 2*q^2 + 1 ; C=-q^2 ; K=q^3 ; D=-q^3 + 2*q^2 + 1
   m=10  A=1 ; B=-q^3 + 2*q^2 + 1 ; C=-q^5 ; K=1 ; D=1
-  invariants: pre-period=1 (exp 1); sum_{period}(k+1)=12 (exp 2n(n+1)=12)  :  OK
+  invariants: pre-period=1 (exp 1); period=9 (exp 9); tuple m=1+P = (-A1,B1,-C1): True;
+              sum_{period}(k+1)=12 (exp 2n(n+1)=12); prod_{i<P} v_i=-1 (exp -1); X(n)=38 = n mod 2: True  :  OK
 
 === n = 3 :  pre-period 1, period 14 ===
   m=1   A=-q ; B=-q^4 + 2*q^3 + q^2 + 1 ; C=q^6 ; K=-q ; D=q^2 + 1
@@ -33,6 +35,7 @@
   m=13  A=2*q ; B=q^4 - 2*q^3 + q^2 + 1 ; C=-1/2*q^6 + 1/2*q^5 - q^4 + 1/2*q^3 - q^2 ; K=2*q ; D=q^2 + 1
   m=14  A=q^4 ; B=-q^4 + 2*q^3 + q^2 + 1 ; C=-q^3 ; K=q^4 ; D=-q^4 + 2*q^3 + q^2 + 1
   m=15  A=q ; B=-q^4 + 2*q^3 + q^2 + 1 ; C=-q^6 ; K=q ; D=q^2 + 1
-  invariants: pre-period=1 (exp 1); sum_{period}(k+1)=24 (exp 2n(n+1)=24)  :  OK
+  invariants: pre-period=1 (exp 1); period=14 (exp 14); tuple m=1+P = (-A1,B1,-C1): True;
+              sum_{period}(k+1)=24 (exp 2n(n+1)=24); prod_{i<P} v_i=-1 (exp -1); X(n)=93 = n mod 2: True  :  OK
 
 BASE CASES n=1,2,3 (computed from the initial triple): ALL OK

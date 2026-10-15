@@ -1,533 +1,401 @@
 ########################################################################
-# STEP 3  --  EVEN n :  Pass1 -> Pass2 -> Pass3 -> (Pass4=Pass2)
+# STEP 3  --  PASS 1  (both parities)
 ########################################################################
 
-=== Even Pass 1 : generic interior (j notin {0}) ===
+=== Pass 1 : generic interior (j notin {0}) ===
 ........................................................................
-m=9j+1  [j notin {0}   ]     (Even Pass 1)
+m=9j+1  [j notin {0}   ]     (Pass 1)
    Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
       A' = 1/8*((q^5 - q^4 + q^3)*q^{4j} + (q^4 - 3*q^3 + 3*q^2 - 2*q)*q^{2j} + (q^2 + (q^4 - 3*q^3 + 3*q^2 - 2*q)*q^{2j} - 4*q + 4)*q^n)/((q^3 - 2*q^2 + q)*q^{2j})
       B' = 1/2*((q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{4j} + (q^4 - 3*q^3 + 5*q^2 - 4*q + 2)*q^{2j} + (q^2 + (q^4 - 3*q^3 + 5*q^2 - 4*q + 2)*q^{2j} - 2*q)*q^n)/((q^2 - 2*q + 1)*q^{2j})
       C' = 1/2*((q^6 - 5*q^5 + 9*q^4 - 8*q^3 + 4*q^2)*q^{4j} + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j} + (q^3 + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j})*q^n)/((q^2 - 2*q + 1)*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Even Pass 1 ,  m=9j+2  [j notin {0}]
+   ==> (A',B',C')  is the next tuple:  Pass 1 ,  m=9j+2  [j notin {0}]
 ........................................................................
-m=9j+2  [j notin {0}   ]     (Even Pass 1)
+m=9j+2  [j notin {0}   ]     (Pass 1)
    Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
       A' = 2*q^n/(q^3*q^{2j})
       B' = -((q^3 - q^2 + q)*q^{2j} + ((q^3 - q^2 + q)*q^{2j} + 2*q - 4)*q^n)/((q^2 - q)*q^{2j})
       C' = 1/2*((q^6 - q^5 + q^4)*q^{4j} + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j} + (q^3 - 4*q^2 + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j} + 4*q)*q^n)/((q^2 - 2*q + 1)*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Even Pass 1 ,  m=9j+3  [j notin {0}]
+   ==> (A',B',C')  is the next tuple:  Pass 1 ,  m=9j+3  [j notin {0}]
 ........................................................................
-m=9j+3  [j notin {0}   ]     (Even Pass 1)
+m=9j+3  [j notin {0}   ]     (Pass 1)
    Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
       A' = ((q^5 - 2*q^4 + 2*q^3 - q^2)*q^{4j} + (q^3 - q^2 + q)*q^{2j} - ((q^3 - q^2 + q)*q^{2j} + q - 1)*q^n)/((q^2 - q)*q^{2j})
       B' = -((q^3 - q^2 + q)*q^{2j} - ((q^3 - q^2 + q)*q^{2j} + 2*q - 2)*q^n)/((q^2 - q)*q^{2j})
       C' = -q^n/(q*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Even Pass 1 ,  m=9j+4  [j notin {0}]
+   ==> (A',B',C')  is the next tuple:  Pass 1 ,  m=9j+4  [j notin {0}]
 ........................................................................
-m=9j+4  [j notin {0}   ]     (Even Pass 1)
+m=9j+4  [j notin {0}   ]     (Pass 1)
    Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
       A' = (q^2 - q + 1)*q^{2j}/q
       B' = -(q^2 + 2*(q^4 - 2*q^3 + 2*q^2 - q)*q^{2j} - (q^2 - q + 1)*q^n - q + 1)/(q - 1)
       C' = ((q^6 - 2*q^5 + 2*q^4 - q^3)*q^{4j} + (q^4 - q^3 + q^2)*q^{2j} - (q^2 + (q^4 - q^3 + q^2)*q^{2j} - q)*q^n)/((q - 1)*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Even Pass 1 ,  m=9j+5  [j notin {0}]
+   ==> (A',B',C')  is the next tuple:  Pass 1 ,  m=9j+5  [j notin {0}]
 ........................................................................
-m=9j+5  [j notin {0}   ]     (Even Pass 1)
+m=9j+5  [j notin {0}   ]     (Pass 1)
    Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
       A' = -((q^5 - q^4 + q^3)*q^{4j} - (q^3 - q^2 + q)*q^{2j} - ((q^3 - q^2 + q)*q^{2j} - 1)*q^n)/((q^2 - 2*q + 1)*q^{2j})
       B' = -(q^2 - 2*(q^4 - q^3 + q^2)*q^{2j} + (q^2 - q + 1)*q^n - q + 1)/(q - 1)
       C' = -(q^3 - q^2 + q)*q^{2j}
-   ==> (A',B',C')  is the next tuple:  Even Pass 1 ,  m=9j+6  [j notin {0}]
+   ==> (A',B',C')  is the next tuple:  Pass 1 ,  m=9j+6  [j notin {0}]
 ........................................................................
-m=9j+6  [j notin {0}   ]     (Even Pass 1)
+m=9j+6  [j notin {0}   ]     (Pass 1)
    Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
       A' = q^n/(q^4*q^{2j})
       B' = -((q^3 - q^2 + q)*q^{2j} + ((q^3 - q^2 + q)*q^{2j} - 2)*q^n)/((q^2 - q)*q^{2j})
       C' = ((q^7 - q^6 + q^5)*q^{4j} - (q^5 - q^4 + q^3)*q^{2j} + (q^2 - (q^5 - q^4 + q^3)*q^{2j})*q^n)/((q^2 - 2*q + 1)*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Even Pass 1 ,  m=9j+7  [j notin {0}]
+   ==> (A',B',C')  is the next tuple:  Pass 1 ,  m=9j+7  [j notin {0}]
 ........................................................................
-m=9j+7  [j notin {0}   ]     (Even Pass 1)
+m=9j+7  [j notin {0}   ]     (Pass 1)
    Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
       A' = ((q^7 - 2*q^6 + 2*q^5 - q^4)*q^{4j} - (q^4 - q^3 + q^2)*q^{2j} + ((q^4 - q^3 + q^2)*q^{2j} - q + 1)*q^n)/((q^3 - q^2)*q^{2j})
       B' = -((q^4 - q^3 + q^2)*q^{2j} - ((q^4 - q^3 + q^2)*q^{2j} - 2*q + 2)*q^n)/((q^3 - q^2)*q^{2j})
       C' = -q^n/(q^2*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Even Pass 1 ,  m=9j+8  [j notin {0}]
+   ==> (A',B',C')  is the next tuple:  Pass 1 ,  m=9j+8  [j notin {0}]
 ........................................................................
-m=9j+8  [j notin {0}   ]     (Even Pass 1)
+m=9j+8  [j notin {0}   ]     (Pass 1)
    Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
       A' = -(q^2 - q + 1)*q^{2j}
       B' = -(q^2 - 2*(q^5 - 2*q^4 + 2*q^3 - q^2)*q^{2j} - (q^2 - q + 1)*q^n - q + 1)/(q - 1)
       C' = -((q^7 - 2*q^6 + 2*q^5 - q^4)*q^{4j} - (q^4 - q^3 + q^2)*q^{2j} + ((q^4 - q^3 + q^2)*q^{2j} - q + 1)*q^n)/((q - 1)*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Even Pass 1 ,  m=9j+9  [j notin {0}]
+   ==> (A',B',C')  is the next tuple:  Pass 1 ,  m=9j+9  [j notin {0}]
 ........................................................................
-m=9j+9  [j notin {0}   ]     (Even Pass 1)
+m=9j+9  [j notin {0}   ]     (Pass 1)
    Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
       A' = -((q^4 - 5*q^3 + 9*q^2 - 8*q + 4)*q^{4j} + (q^3 - 3*q^2 + 3*q - 2)*q^{2j} + ((q^3 - 3*q^2 + 3*q - 2)*q^{2j} + q)*q^n)/((q^2 - 2*q + 1)*q^{2j})
       B' = -(q^2 + 2*(q^3 - 3*q^2 + 3*q - 2)*q^{2j} + (q^2 - q + 1)*q^n - q + 1)/(q - 1)
       C' = -(q^2 - q + 1)*q^{2j}
-   ==> (A',B',C')  is the next tuple:  Even Pass 1 ,  m=9(j+1)+1  [j notin {0}]
+   ==> (A',B',C')  is the next tuple:  Pass 1 ,  m=9(j+1)+1  [j notin {0}]
 
-=== Even Pass 1 : j=0 chain ===
+=== Pass 1 : j=0 chain ===
 ........................................................................
-m=9j+1  [j=0           ]     (Even Pass 1)
+m=9j+1  [j=0           ]     (Pass 1)
    Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
       A' = (q^3 - 3*q^2 + (q^2 - 2*q + 2)*q^n + 3*q - 2)/(q - 1)
       B' = -(q^2 - (q^2 - 3*q + 3)*q^n - q + 1)/(q - 1)
       C' = -q^n
-   ==> (A',B',C')  is the next tuple:  Even Pass 1 ,  m=9j+2  [j=0]
+   ==> (A',B',C')  is the next tuple:  Pass 1 ,  m=9j+2  [j=0]
 ........................................................................
-m=9j+2  [j=0           ]     (Even Pass 1)
+m=9j+2  [j=0           ]     (Pass 1)
    Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
       A' = -1/8*(q^4 + q^3 - q^2 + (q^3 - 2*q^2 + 2*q - 4)*q^n + 2*q)/(q^2 - q)
       B' = 1/2*(q^4 - q^3 - q^2 + (q^3 - 2*q^2 + 4*q - 2)*q^n + 2*q - 2)/(q - 1)
       C' = -1/2*(q^5 - 3*q^4 + 3*q^3 - 2*q^2 + (q^4 - 2*q^3 + 2*q^2)*q^n)/(q - 1)
-   ==> (A',B',C')  is the next tuple:  Even Pass 1 ,  m=9j+3  [j=0]
+   ==> (A',B',C')  is the next tuple:  Pass 1 ,  m=9j+3  [j=0]
 ........................................................................
-m=9j+3  [j=0           ]     (Even Pass 1)
+m=9j+3  [j=0           ]     (Pass 1)
    Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
       A' = 2*q^n/q^3
       B' = -(q^3 - q^2 + (q^3 - q^2 + 3*q - 4)*q^n + q)/(q^2 - q)
       C' = 1/2*(q^5 + q^4 - q^3 + 2*q^2 + (q^4 - 2*q^3 + 2*q^2 - 4*q)*q^n)/(q - 1)
-   ==> (A',B',C')  is the next tuple:  Even Pass 1 ,  m=9j+4  [j=0]
+   ==> (A',B',C')  is the next tuple:  Pass 1 ,  m=9j+4  [j=0]
 ........................................................................
-m=9j+4  [j=0           ]     (Even Pass 1)
+m=9j+4  [j=0           ]     (Pass 1)
    Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
       A' = (q^5 - 2*q^4 + 3*q^3 - 2*q^2 - (q^3 - q^2 + 2*q - 1)*q^n + q)/(q^2 - q)
       B' = -(q^3 - q^2 - (q^3 - q^2 + 3*q - 2)*q^n + q)/(q^2 - q)
       C' = -q^n/q
-   ==> (A',B',C')  is the next tuple:  Even Pass 1 ,  m=9j+5  [j=0]
+   ==> (A',B',C')  is the next tuple:  Pass 1 ,  m=9j+5  [j=0]
 ........................................................................
-m=9j+5  [j=0           ]     (Even Pass 1)
+m=9j+5  [j=0           ]     (Pass 1)
    Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
       A' = (q^4 - (q^2 + 1)*q^n + q)/(q - 1)
       B' = -(2*q^5 - 2*q^4 + 2*q^3 + q^2 - (2*q^3 - q^2 + 3*q - 1)*q^n - q + 1)/(q - 1)
       C' = (q^6 - 2*q^5 + 3*q^4 - 2*q^3 + q^2 - (q^4 - q^3 + 2*q^2 - q)*q^n)/(q - 1)
-   ==> (A',B',C')  is the next tuple:  Even Pass 1 ,  m=9j+6  [j=0]
+   ==> (A',B',C')  is the next tuple:  Pass 1 ,  m=9j+6  [j=0]
 ........................................................................
-m=9j+6  [j=0           ]     (Even Pass 1)
+m=9j+6  [j=0           ]     (Pass 1)
    Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
       A' = q^n/(q^4*q^{2j})
       B' = -((q^3 - q^2 + q)*q^{2j} + ((q^3 - q^2 + q)*q^{2j} - 2)*q^n)/((q^2 - q)*q^{2j})
       C' = ((q^7 - q^6 + q^5)*q^{4j} - (q^5 - q^4 + q^3)*q^{2j} + (q^2 - (q^5 - q^4 + q^3)*q^{2j})*q^n)/((q^2 - 2*q + 1)*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Even Pass 1 ,  m=7 (j=0)  [all j]
+   ==> (A',B',C')  is the next tuple:  Pass 1 ,  m=7 (j=0)  [all j]
+
+
+########################################################################
+# STEP 3  --  BRIDGE 2 (n even) / BRIDGE 3 (n odd):  Pass 1 -> Pass 2
+########################################################################
+
+--- even n: pass 1 ends at n-2j=2 ---
 ------------------------------------------------------------------------
-   >>> JUNCTION:  Even Pass 1 boundary tuple (m=B1) = Even Pass 2, m=1  (values, in junc.sage)
+   >>> JUNCTION:  Pass 1 boundary tuple (m=B1: r=2, j=n/2-1) = bridge 2, c1
+       generic row at u = q^{2j_B} = q^n/q^2 gives (A,B,C) = Bridge 2, c1 :  identity in q, q^n = True
 
-=== Even Pass 2 : generic interior (j notin {0}) ===
+=== Bridge 2: c1..c5 (j-free) ===
 ........................................................................
-m=9j+1  [j notin {0}   ]     (Even Pass 2)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = (q^2 - q + 1)*q^n/(q^3*q^{2j})
-      B' = -((q^2 - q + 1)*q^{2j} - (2*q^2 - (q^2 - q + 1)*q^{2j} - 2*q + 2)*q^n)/((q - 1)*q^{2j})
-      C' = (q^4*q^{4j} - (q^5 - q^4 + q^3)*q^{2j} + (q^5 - q^4 + q^3 - (q^5 - q^4 + q^3)*q^{2j})*q^n)/((q^2 - 2*q + 1)*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Even Pass 2 ,  m=9j+2  [j notin {0}]
-........................................................................
-m=9j+2  [j notin {0}   ]     (Even Pass 2)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = ((q^3 - q^2)*q^{4j} - (q^3 - q^2 + q)*q^{2j} - (q^3 - 2*q^2 - (q^3 - q^2 + q)*q^{2j} + 2*q - 1)*q^n)/((q^2 - q)*q^{2j})
-      B' = -((q^3 - q^2 + q)*q^{2j} + (2*q^3 - 4*q^2 - (q^3 - q^2 + q)*q^{2j} + 4*q - 2)*q^n)/((q^2 - q)*q^{2j})
-      C' = -(q^2 - q + 1)*q^n/(q*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Even Pass 2 ,  m=9j+3  [j notin {0}]
-........................................................................
-m=9j+3  [j notin {0}   ]     (Even Pass 2)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = -q^{2j}/q
-      B' = -(q^2 - 2*(q^2 - q)*q^{2j} - (q^2 - q + 1)*q^n - q + 1)/(q - 1)
-      C' = -((q^4 - q^3)*q^{4j} - (q^4 - q^3 + q^2)*q^{2j} - (q^4 - 2*q^3 + 2*q^2 - (q^4 - q^3 + q^2)*q^{2j} - q)*q^n)/((q - 1)*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Even Pass 2 ,  m=9j+4  [j notin {0}]
-........................................................................
-m=9j+4  [j notin {0}   ]     (Even Pass 2)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = -((q^3 - 4*q^2 + 4*q)*q^{4j} + (q^3 - 3*q^2 + 3*q - 2)*q^{2j} + (q^2 + (q^3 - 3*q^2 + 3*q - 2)*q^{2j} - q + 1)*q^n)/((q^2 - 2*q + 1)*q^{2j})
-      B' = -(q^2 + 2*(q^2 - 2*q)*q^{2j} + (q^2 - q + 1)*q^n - q + 1)/(q - 1)
-      C' = -q*q^{2j}
-   ==> (A',B',C')  is the next tuple:  Even Pass 2 ,  m=9j+5  [j notin {0}]
-........................................................................
-m=9j+5  [j notin {0}   ]     (Even Pass 2)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = 1/8*(q^5*q^{4j} + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j} + (q^4 - 5*q^3 + 9*q^2 + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j} - 8*q + 4)*q^n)/((q^4 - 2*q^3 + q^2)*q^{2j})
-      B' = 1/2*((q^4 - 2*q^3)*q^{4j} + (q^4 - 3*q^3 + 5*q^2 - 4*q + 2)*q^{2j} + (q^3 - 3*q^2 + (q^4 - 3*q^3 + 5*q^2 - 4*q + 2)*q^{2j} + 3*q - 2)*q^n)/((q^2 - 2*q + 1)*q^{2j})
-      C' = 1/2*((q^5 - 4*q^4 + 4*q^3)*q^{4j} + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j} + (q^4 - q^3 + q^2 + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j})*q^n)/((q^2 - 2*q + 1)*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Even Pass 2 ,  m=9j+6  [j notin {0}]
-........................................................................
-m=9j+6  [j notin {0}   ]     (Even Pass 2)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = 2*(q^2 - q + 1)*q^n/(q^4*q^{2j})
-      B' = -((q^4 - q^3 + q^2)*q^{2j} + (2*q^3 - 6*q^2 + (q^4 - q^3 + q^2)*q^{2j} + 6*q - 4)*q^n)/((q^3 - q^2)*q^{2j})
-      C' = 1/2*(q^5*q^{4j} + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j} + (q^4 - 5*q^3 + 9*q^2 + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j} - 8*q + 4)*q^n)/((q^2 - 2*q + 1)*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Even Pass 2 ,  m=9j+7  [j notin {0}]
-........................................................................
-m=9j+7  [j notin {0}   ]     (Even Pass 2)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = ((q^5 - q^4)*q^{4j} + (q^4 - q^3 + q^2)*q^{2j} - (q^3 - 2*q^2 + (q^4 - q^3 + q^2)*q^{2j} + 2*q - 1)*q^n)/((q^3 - q^2)*q^{2j})
-      B' = -((q^4 - q^3 + q^2)*q^{2j} - (2*q^3 - 4*q^2 + (q^4 - q^3 + q^2)*q^{2j} + 4*q - 2)*q^n)/((q^3 - q^2)*q^{2j})
-      C' = -(q^2 - q + 1)*q^n/(q^2*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Even Pass 2 ,  m=9j+8  [j notin {0}]
-........................................................................
-m=9j+8  [j notin {0}   ]     (Even Pass 2)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = q^{2j}
-      B' = -(q^2 + 2*(q^3 - q^2)*q^{2j} - (q^2 - q + 1)*q^n - q + 1)/(q - 1)
-      C' = ((q^5 - q^4)*q^{4j} + (q^4 - q^3 + q^2)*q^{2j} - (q^3 - 2*q^2 + (q^4 - q^3 + q^2)*q^{2j} + 2*q - 1)*q^n)/((q - 1)*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Even Pass 2 ,  m=9j+9  [j notin {0}]
-........................................................................
-m=9j+9  [j notin {0}   ]     (Even Pass 2)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = -(q^2*q^{4j} - (q^3 - q^2 + q)*q^{2j} + (q^3 - q^2 - (q^3 - q^2 + q)*q^{2j} + q)*q^n)/((q^2 - 2*q + 1)*q^{2j})
-      B' = -(q^2 - 2*q*q^{2j} + (q^2 - q + 1)*q^n - q + 1)/(q - 1)
-      C' = -q^{2j}
-   ==> (A',B',C')  is the next tuple:  Even Pass 2 ,  m=9(j+1)+1  [j notin {0}]
-
-=== Even Pass 2 : j=0 chain ===
-........................................................................
-m=9j+1  [j=0           ]     (Even Pass 2)
+m=9j+1  [c1            ]     (Bridge 2)
    Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
       A' = 2*(2*q^3 - 2*q^2 + (q^3 + 1)*q^n - 2*q)/(q^2 - q)
       B' = -(4*q^3 - 7*q^2 + (2*q^3 - q^2 + q + 1)*q^n - q + 1)/(q - 1)
       C' = 1/2*(2*q^4 - 5*q^3 + 2*q^2 + (q^4 - q^3 + q^2)*q^n)/(q - 1)
-   ==> (A',B',C')  is the next tuple:  Even Pass 2 ,  m=9j+2  [j=0]
+   ==> (A',B',C')  is the next tuple:  Bridge 2 ,  m=9j+2  [c2]
 ........................................................................
-m=9j+2  [j=0           ]     (Even Pass 2)
+m=9j+2  [c2            ]     (Bridge 2)
    Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
       A' = 1/2*(q^2 - q + 1)*q^n/q^3
       B' = -(q^3 - q^2 - (q^2 - q + 1)*q^n + q)/(q^2 - q)
       C' = -1/2*(2*q^4 - 2*q^3 - 2*q^2 + (q^4 + q)*q^n)/(q - 1)
-   ==> (A',B',C')  is the next tuple:  Even Pass 2 ,  m=9j+3  [j=0]
+   ==> (A',B',C')  is the next tuple:  Bridge 2 ,  m=9j+3  [c3]
 ........................................................................
-m=9j+3  [j=0           ]     (Even Pass 2)
+m=9j+3  [c3            ]     (Bridge 2)
    Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
       A' = 1/4*(2*q^3 - 2*q^2 + (q^3 + 1)*q^n - 2*q)/(q^2 - q)
       B' = -(q^3 - q^2 - (q^2 - q + 1)*q^n + q)/(q^2 - q)
       C' = -(q^2 - q + 1)*q^n/q
-   ==> (A',B',C')  is the next tuple:  Even Pass 2 ,  m=9j+4  [j=0]
+   ==> (A',B',C')  is the next tuple:  Bridge 2 ,  m=9j+4  [c4]
 ........................................................................
-m=9j+4  [j=0           ]     (Even Pass 2)
+m=9j+4  [c4            ]     (Bridge 2)
    Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
       A' = -2*(2*q^2 + (q^2 - q + 1)*q^n - 5*q + 2)/(q - 1)
       B' = -(4*q^3 - 7*q^2 + (2*q^3 - q^2 + q + 1)*q^n - q + 1)/(q - 1)
       C' = -1/2*(2*q^4 - 2*q^3 - 2*q^2 + (q^4 + q)*q^n)/(q - 1)
-   ==> (A',B',C')  is the next tuple:  Even Pass 2 ,  m=9j+5  [j=0]
+   ==> (A',B',C')  is the next tuple:  Bridge 2 ,  m=9j+5  [c5]
 ........................................................................
-m=9j+5  [j=0           ]     (Even Pass 2)
+m=9j+5  [c5            ]     (Bridge 2)
    Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
       A' = 1/8*(q^5*q^{4j} + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j} + (q^4 - 5*q^3 + 9*q^2 + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j} - 8*q + 4)*q^n)/((q^4 - 2*q^3 + q^2)*q^{2j})
       B' = 1/2*((q^4 - 2*q^3)*q^{4j} + (q^4 - 3*q^3 + 5*q^2 - 4*q + 2)*q^{2j} + (q^3 - 3*q^2 + (q^4 - 3*q^3 + 5*q^2 - 4*q + 2)*q^{2j} + 3*q - 2)*q^n)/((q^2 - 2*q + 1)*q^{2j})
       C' = 1/2*((q^5 - 4*q^4 + 4*q^3)*q^{4j} + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j} + (q^4 - q^3 + q^2 + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j})*q^n)/((q^2 - 2*q + 1)*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Even Pass 2 ,  m=6 (j=0)  [all j]
+   ==> (A',B',C')  is the next tuple:  Pass 2, row 6 at j=0 (first tuple) ,  m=6 (j=0)  [j=0]
+
+--- odd n: pass 1 ends at n-2j=3 ---
 ------------------------------------------------------------------------
-   >>> JUNCTION:  Even Pass 2 boundary tuple (m=B2) = Even Pass 3, m=1  (values, in junc.sage)
+   >>> JUNCTION:  Pass 1 boundary tuple (m=B1: r=6, j=(n-3)/2) = bridge 3, d1
+       generic row at u = q^{2j_B} = q^n/q^3 gives (A,B,C) = Bridge 3, d1 :  identity in q, q^n = True
 
-=== Even Pass 3 : generic interior (j notin {0}) ===
+=== Bridge 3: d1..d3 (j-free) ===
 ........................................................................
-m=9j+1  [j notin {0}   ]     (Even Pass 3)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = ((q^3 - 2*q^2 + 2*q - 1)*q^{4j} + (q^3 - q^2 + q)*q^{2j} - (q^3 - q^2 + (q^3 - q^2 + q)*q^{2j})*q^n)/((q^2 - q)*q^{2j})
-      B' = -((q^2 - q + 1)*q^{2j} - (2*q^2 + (q^2 - q + 1)*q^{2j} - 2*q)*q^n)/((q - 1)*q^{2j})
-      C' = -q*q^n/q^{2j}
-   ==> (A',B',C')  is the next tuple:  Even Pass 3 ,  m=9j+2  [j notin {0}]
-........................................................................
-m=9j+2  [j notin {0}   ]     (Even Pass 3)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = (q^2 - q + 1)*q^{2j}/q^3
-      B' = -(q^3 - q^2 + 2*(q^3 - 2*q^2 + 2*q - 1)*q^{2j} - (q^3 - q^2 + q)*q^n + q)/(q^2 - q)
-      C' = ((q^4 - 2*q^3 + 2*q^2 - q)*q^{4j} + (q^4 - q^3 + q^2)*q^{2j} - (q^4 - q^3 + (q^4 - q^3 + q^2)*q^{2j})*q^n)/((q - 1)*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Even Pass 3 ,  m=9j+3  [j notin {0}]
-........................................................................
-m=9j+3  [j notin {0}   ]     (Even Pass 3)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = -((q^3 - q^2 + q)*q^{4j} - (q^3 - q^2 + q)*q^{2j} + (q^2 - (q^3 - q^2 + q)*q^{2j})*q^n)/((q^2 - 2*q + 1)*q^{2j})
-      B' = -(q^2 - 2*(q^2 - q + 1)*q^{2j} + (q^2 - q + 1)*q^n - q + 1)/(q - 1)
-      C' = -(q^2 - q + 1)*q^{2j}/q
-   ==> (A',B',C')  is the next tuple:  Even Pass 3 ,  m=9j+4  [j notin {0}]
-........................................................................
-m=9j+4  [j notin {0}   ]     (Even Pass 3)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = q^n/(q^2*q^{2j})
-      B' = -((q^2 - q + 1)*q^{2j} + ((q^2 - q + 1)*q^{2j} - 2*q)*q^n)/((q - 1)*q^{2j})
-      C' = ((q^5 - q^4 + q^3)*q^{4j} - (q^5 - q^4 + q^3)*q^{2j} + (q^4 - (q^5 - q^4 + q^3)*q^{2j})*q^n)/((q^2 - 2*q + 1)*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Even Pass 3 ,  m=9j+5  [j notin {0}]
-........................................................................
-m=9j+5  [j notin {0}   ]     (Even Pass 3)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = ((q^3 - 2*q^2 + 2*q - 1)*q^{4j} - (q^2 - q + 1)*q^{2j} + ((q^2 - q + 1)*q^{2j} - q + 1)*q^n)/((q - 1)*q^{2j})
-      B' = -((q^2 - q + 1)*q^{2j} - ((q^2 - q + 1)*q^{2j} - 2*q + 2)*q^n)/((q - 1)*q^{2j})
-      C' = -q^n/q^{2j}
-   ==> (A',B',C')  is the next tuple:  Even Pass 3 ,  m=9j+6  [j notin {0}]
-........................................................................
-m=9j+6  [j notin {0}   ]     (Even Pass 3)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = -(q^2 - q + 1)*q^{2j}/q^2
-      B' = -(q^2 - 2*(q^3 - 2*q^2 + 2*q - 1)*q^{2j} - (q^2 - q + 1)*q^n - q + 1)/(q - 1)
-      C' = -((q^5 - 2*q^4 + 2*q^3 - q^2)*q^{4j} - (q^4 - q^3 + q^2)*q^{2j} - (q^3 - q^2 - (q^4 - q^3 + q^2)*q^{2j})*q^n)/((q - 1)*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Even Pass 3 ,  m=9j+7  [j notin {0}]
-........................................................................
-m=9j+7  [j notin {0}   ]     (Even Pass 3)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = -((q^4 - 5*q^3 + 9*q^2 - 8*q + 4)*q^{4j} + (q^3 - 3*q^2 + 3*q - 2)*q^{2j} + ((q^3 - 3*q^2 + 3*q - 2)*q^{2j} + q)*q^n)/((q^2 - 2*q + 1)*q^{2j})
-      B' = -(q^2 + 2*(q^3 - 3*q^2 + 3*q - 2)*q^{2j} + (q^2 - q + 1)*q^n - q + 1)/(q - 1)
-      C' = -(q^2 - q + 1)*q^{2j}
-   ==> (A',B',C')  is the next tuple:  Even Pass 3 ,  m=9j+8  [j notin {0}]
-........................................................................
-m=9j+8  [j notin {0}   ]     (Even Pass 3)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = 1/8*((q^5 - q^4 + q^3)*q^{4j} + (q^4 - 3*q^3 + 3*q^2 - 2*q)*q^{2j} + (q^2 + (q^4 - 3*q^3 + 3*q^2 - 2*q)*q^{2j} - 4*q + 4)*q^n)/((q^3 - 2*q^2 + q)*q^{2j})
-      B' = 1/2*((q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{4j} + (q^4 - 3*q^3 + 5*q^2 - 4*q + 2)*q^{2j} + (q^2 + (q^4 - 3*q^3 + 5*q^2 - 4*q + 2)*q^{2j} - 2*q)*q^n)/((q^2 - 2*q + 1)*q^{2j})
-      C' = 1/2*((q^6 - 5*q^5 + 9*q^4 - 8*q^3 + 4*q^2)*q^{4j} + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j} + (q^3 + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j})*q^n)/((q^2 - 2*q + 1)*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Even Pass 3 ,  m=9j+9  [j notin {0}]
-........................................................................
-m=9j+9  [j notin {0}   ]     (Even Pass 3)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = 2*q^n/(q*q^{2j})
-      B' = -((q^2 - q + 1)*q^{2j} + (2*q^2 + (q^2 - q + 1)*q^{2j} - 4*q)*q^n)/((q - 1)*q^{2j})
-      C' = 1/2*((q^4 - q^3 + q^2)*q^{4j} + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j} + (q^5 - 4*q^4 + 4*q^3 + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j})*q^n)/((q^2 - 2*q + 1)*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Even Pass 3 ,  m=9(j+1)+1  [j notin {0,1}]
-
-=== Even Pass 3 : j=0 chain, then j=1 chain ===
-........................................................................
-m=9j+1  [j=0           ]     (Even Pass 3)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = (q^5 - 2*q^4 + 3*q^3 - 2*q^2 - (q^3 - q^2 + 2*q - 1)*q^n + q)/(q^2 - q)
-      B' = -(2*q^5 - 2*q^4 + 2*q^3 + q^2 - (2*q^3 - q^2 + 3*q - 1)*q^n - q + 1)/(q - 1)
-      C' = (q^6 + q^3 - (q^4 + q^2)*q^n)/(q - 1)
-   ==> (A',B',C')  is the next tuple:  Even Pass 3 ,  m=9j+2  [j=0]
-........................................................................
-m=9j+2  [j=0           ]     (Even Pass 3)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = -q^n/q^3
-      B' = -(q^3 - q^2 - (q^3 - q^2 + 3*q - 2)*q^n + q)/(q^2 - q)
-      C' = (q^6 - 2*q^5 + 3*q^4 - 2*q^3 + q^2 - (q^4 - q^3 + 2*q^2 - q)*q^n)/(q - 1)
-   ==> (A',B',C')  is the next tuple:  Even Pass 3 ,  m=9j+3  [j=0]
-........................................................................
-m=9j+3  [j=0           ]     (Even Pass 3)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = -(q^4 + q^3 - q^2 + (q^3 - 2*q^2 + 2*q - 4)*q^n + 2*q)/(q^2 - q)
-      B' = -(q^3 - q^2 + (q^3 - q^2 + 3*q - 4)*q^n + q)/(q^2 - q)
-      C' = -q^n/q
-   ==> (A',B',C')  is the next tuple:  Even Pass 3 ,  m=9j+4  [j=0]
-........................................................................
-m=9j+4  [j=0           ]     (Even Pass 3)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = 1/8*(q^3 - 3*q^2 + (q^2 - 2*q + 2)*q^n + 3*q - 2)/(q - 1)
-      B' = 1/2*(q^4 - q^3 - q^2 + (q^3 - 2*q^2 + 4*q - 2)*q^n + 2*q - 2)/(q - 1)
-      C' = 1/2*(q^5 + q^4 - q^3 + 2*q^2 + (q^4 - 2*q^3 + 2*q^2 - 4*q)*q^n)/(q - 1)
-   ==> (A',B',C')  is the next tuple:  Even Pass 3 ,  m=9j+5  [j=0]
-........................................................................
-m=9j+5  [j=0           ]     (Even Pass 3)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = 2*q^n/q^2
-      B' = -(q^2 - (q^2 - 3*q + 3)*q^n - q + 1)/(q - 1)
-      C' = -1/2*(q^5 - 3*q^4 + 3*q^3 - 2*q^2 + (q^4 - 2*q^3 + 2*q^2)*q^n)/(q - 1)
-   ==> (A',B',C')  is the next tuple:  Even Pass 3 ,  m=9j+6  [j=0]
-........................................................................
-m=9j+6  [j=0           ]     (Even Pass 3)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = q*q^n
-      B' = -(q^2 + (q^2 - 3*q + 1)*q^n - q + 1)/(q - 1)
-      C' = -q^n
-   ==> (A',B',C')  is the next tuple:  Even Pass 3 ,  m=9j+7  [j=0]
-........................................................................
-m=9j+7  [j=0           ]     (Even Pass 3)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = q^n/q^2
-      B' = -(q^2 + (q^2 - 3*q + 1)*q^n - q + 1)/(q - 1)
-      C' = -q^3*q^n
-   ==> (A',B',C')  is the next tuple:  Even Pass 3 ,  m=9j+8  [j=0]
-........................................................................
-m=9j+8  [j=0           ]     (Even Pass 3)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = (q^3 - 3*q^2 + (q^2 - 2*q + 2)*q^n + 3*q - 2)/(q - 1)
-      B' = -(q^2 - (q^2 - 3*q + 3)*q^n - q + 1)/(q - 1)
-      C' = -q^n
-   ==> (A',B',C')  is the next tuple:  Even Pass 3 ,  m=9j+9  [j=0]
-........................................................................
-m=9j+9  [j=0           ]     (Even Pass 3)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = -1/8*(q^4 + q^3 - q^2 + (q^3 - 2*q^2 + 2*q - 4)*q^n + 2*q)/(q^2 - q)
-      B' = 1/2*(q^4 - q^3 - q^2 + (q^3 - 2*q^2 + 4*q - 2)*q^n + 2*q - 2)/(q - 1)
-      C' = -1/2*(q^5 - 3*q^4 + 3*q^3 - 2*q^2 + (q^4 - 2*q^3 + 2*q^2)*q^n)/(q - 1)
-   ==> (A',B',C')  is the next tuple:  Even Pass 3 ,  m=9j+1  [j=1]
-........................................................................
-m=9j+1  [j=1           ]     (Even Pass 3)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = 2*q^n/q^3
-      B' = -(q^3 - q^2 + (q^3 - q^2 + 3*q - 4)*q^n + q)/(q^2 - q)
-      C' = 1/2*(q^5 + q^4 - q^3 + 2*q^2 + (q^4 - 2*q^3 + 2*q^2 - 4*q)*q^n)/(q - 1)
-   ==> (A',B',C')  is the next tuple:  Even Pass 3 ,  m=9j+2  [j=1]
-........................................................................
-m=9j+2  [j=1           ]     (Even Pass 3)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = (q^5 - 2*q^4 + 3*q^3 - 2*q^2 - (q^3 - q^2 + 2*q - 1)*q^n + q)/(q^2 - q)
-      B' = -(q^3 - q^2 - (q^3 - q^2 + 3*q - 2)*q^n + q)/(q^2 - q)
-      C' = -q^n/q
-   ==> (A',B',C')  is the next tuple:  Even Pass 3 ,  m=9j+3  [j=1]
-........................................................................
-m=9j+3  [j=1           ]     (Even Pass 3)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = (q^4 - (q^2 + 1)*q^n + q)/(q - 1)
-      B' = -(2*q^5 - 2*q^4 + 2*q^3 + q^2 - (2*q^3 - q^2 + 3*q - 1)*q^n - q + 1)/(q - 1)
-      C' = (q^6 - 2*q^5 + 3*q^4 - 2*q^3 + q^2 - (q^4 - q^3 + 2*q^2 - q)*q^n)/(q - 1)
-   ==> (A',B',C')  is the next tuple:  Even Pass 3 ,  m=9j+4  [j=1]
-........................................................................
-m=9j+4  [j=1           ]     (Even Pass 3)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = q^n/(q^2*q^{2j})
-      B' = -((q^2 - q + 1)*q^{2j} + ((q^2 - q + 1)*q^{2j} - 2*q)*q^n)/((q - 1)*q^{2j})
-      C' = ((q^5 - q^4 + q^3)*q^{4j} - (q^5 - q^4 + q^3)*q^{2j} + (q^4 - (q^5 - q^4 + q^3)*q^{2j})*q^n)/((q^2 - 2*q + 1)*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Even Pass 3 ,  m=14 (j=1)  [j notin {0}]
-------------------------------------------------------------------------
-   >>> JUNCTION:  Even Pass 3 boundary tuple (m=B3) = Even Pass 2, m=1  (closes cycle: Pass4=Pass2)
-
-
-########################################################################
-# STEP 3  --  ODD n :  Pass1(=Even Pass1) -> Pass2 -> Bridge -> Pass1
-########################################################################
-
-(Odd Pass 1 uses the SAME formulas/transitions as Even Pass 1 above.)
-
-=== Odd Pass 2 : generic interior (j notin {0}) ===
-........................................................................
-m=9j+1  [j notin {0}   ]     (Odd Pass 2)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = q^{2j}/q
-      B' = -(q^2 + 2*(q^2 - q)*q^{2j} - (q^2 - q + 1)*q^n - q + 1)/(q - 1)
-      C' = ((q^4 - q^3)*q^{4j} + (q^4 - q^3 + q^2)*q^{2j} - (q^4 - 2*q^3 + 2*q^2 + (q^4 - q^3 + q^2)*q^{2j} - q)*q^n)/((q - 1)*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Odd Pass 2 ,  m=9j+2  [j notin {0}]
-........................................................................
-m=9j+2  [j notin {0}   ]     (Odd Pass 2)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = -(q^3*q^{4j} - (q^3 - q^2 + q)*q^{2j} + (q^2 - (q^3 - q^2 + q)*q^{2j} - q + 1)*q^n)/((q^2 - 2*q + 1)*q^{2j})
-      B' = (2*q^2*q^{2j} - q^2 - (q^2 - q + 1)*q^n + q - 1)/(q - 1)
-      C' = -q*q^{2j}
-   ==> (A',B',C')  is the next tuple:  Odd Pass 2 ,  m=9j+3  [j notin {0}]
-........................................................................
-m=9j+3  [j notin {0}   ]     (Odd Pass 2)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = (q^2 - q + 1)*q^n/(q^4*q^{2j})
-      B' = -((q^3 - q^2 + q)*q^{2j} - (2*q^2 - (q^3 - q^2 + q)*q^{2j} - 2*q + 2)*q^n)/((q^2 - q)*q^{2j})
-      C' = (q^5*q^{4j} - (q^5 - q^4 + q^3)*q^{2j} + (q^4 - q^3 + q^2 - (q^5 - q^4 + q^3)*q^{2j})*q^n)/((q^2 - 2*q + 1)*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Odd Pass 2 ,  m=9j+4  [j notin {0}]
-........................................................................
-m=9j+4  [j notin {0}   ]     (Odd Pass 2)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = ((q^5 - q^4)*q^{4j} - (q^4 - q^3 + q^2)*q^{2j} - (q^3 - 2*q^2 - (q^4 - q^3 + q^2)*q^{2j} + 2*q - 1)*q^n)/((q^3 - q^2)*q^{2j})
-      B' = -((q^4 - q^3 + q^2)*q^{2j} + (2*q^3 - 4*q^2 - (q^4 - q^3 + q^2)*q^{2j} + 4*q - 2)*q^n)/((q^3 - q^2)*q^{2j})
-      C' = -(q^2 - q + 1)*q^n/(q^2*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Odd Pass 2 ,  m=9j+5  [j notin {0}]
-........................................................................
-m=9j+5  [j notin {0}   ]     (Odd Pass 2)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = -q^{2j}
-      B' = -(q^2 - 2*(q^3 - q^2)*q^{2j} - (q^2 - q + 1)*q^n - q + 1)/(q - 1)
-      C' = -((q^5 - q^4)*q^{4j} - (q^4 - q^3 + q^2)*q^{2j} - (q^3 - 2*q^2 - (q^4 - q^3 + q^2)*q^{2j} + 2*q - 1)*q^n)/((q - 1)*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Odd Pass 2 ,  m=9j+6  [j notin {0}]
-........................................................................
-m=9j+6  [j notin {0}   ]     (Odd Pass 2)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = -((q^5 - 4*q^4 + 4*q^3)*q^{4j} + (q^4 - 3*q^3 + 3*q^2 - 2*q)*q^{2j} + (q^2 + (q^4 - 3*q^3 + 3*q^2 - 2*q)*q^{2j} - q + 1)*q^n)/((q^3 - 2*q^2 + q)*q^{2j})
-      B' = -(q^2 + 2*(q^3 - 2*q^2)*q^{2j} + (q^2 - q + 1)*q^n - q + 1)/(q - 1)
-      C' = -q^2*q^{2j}
-   ==> (A',B',C')  is the next tuple:  Odd Pass 2 ,  m=9j+7  [j notin {0}]
-........................................................................
-m=9j+7  [j notin {0}   ]     (Odd Pass 2)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = 1/8*(q^7*q^{4j} + (q^6 - 3*q^5 + 3*q^4 - 2*q^3)*q^{2j} + (q^4 - 5*q^3 + 9*q^2 + (q^6 - 3*q^5 + 3*q^4 - 2*q^3)*q^{2j} - 8*q + 4)*q^n)/((q^5 - 2*q^4 + q^3)*q^{2j})
-      B' = 1/2*((q^6 - 2*q^5)*q^{4j} + (q^5 - 3*q^4 + 5*q^3 - 4*q^2 + 2*q)*q^{2j} + (q^3 - 3*q^2 + (q^5 - 3*q^4 + 5*q^3 - 4*q^2 + 2*q)*q^{2j} + 3*q - 2)*q^n)/((q^3 - 2*q^2 + q)*q^{2j})
-      C' = 1/2*((q^6 - 4*q^5 + 4*q^4)*q^{4j} + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j} + (q^3 - q^2 + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j} + q)*q^n)/((q^2 - 2*q + 1)*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Odd Pass 2 ,  m=9j+8  [j notin {0}]
-........................................................................
-m=9j+8  [j notin {0}   ]     (Odd Pass 2)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = 2*(q^2 - q + 1)*q^n/(q^5*q^{2j})
-      B' = -((q^5 - q^4 + q^3)*q^{2j} + (2*q^3 - 6*q^2 + (q^5 - q^4 + q^3)*q^{2j} + 6*q - 4)*q^n)/((q^4 - q^3)*q^{2j})
-      C' = 1/2*(q^7*q^{4j} + (q^6 - 3*q^5 + 3*q^4 - 2*q^3)*q^{2j} + (q^4 - 5*q^3 + 9*q^2 + (q^6 - 3*q^5 + 3*q^4 - 2*q^3)*q^{2j} - 8*q + 4)*q^n)/((q^3 - 2*q^2 + q)*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Odd Pass 2 ,  m=9j+9  [j notin {0}]
-........................................................................
-m=9j+9  [j notin {0}   ]     (Odd Pass 2)
-   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
-      A' = ((q^3 - q^2)*q^{4j} + (q^3 - q^2 + q)*q^{2j} - (q^3 - 2*q^2 + (q^3 - q^2 + q)*q^{2j} + 2*q - 1)*q^n)/((q^2 - q)*q^{2j})
-      B' = -((q^3 - q^2 + q)*q^{2j} - (2*q^3 - 4*q^2 + (q^3 - q^2 + q)*q^{2j} + 4*q - 2)*q^n)/((q^2 - q)*q^{2j})
-      C' = -(q^2 - q + 1)*q^n/(q*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Odd Pass 2 ,  m=9(j+1)+1  [j notin {0}]
-
-=== Odd Pass 2 : j=0 chain ===
-........................................................................
-m=9j+1  [j=0           ]     (Odd Pass 2)
+m=9j+1  [d1            ]     (Bridge 3)
    Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
       A' = -(q^2 - q + 1)*q^n/q
       B' = -(q^2 - (2*q^3 - 3*q^2 + 3*q - 1)*q^n - q + 1)/(q - 1)
       C' = (q^3 - (q^4 - q^3 + q^2)*q^n)/(q - 1)
-   ==> (A',B',C')  is the next tuple:  Odd Pass 2 ,  m=9j+2  [j=0]
+   ==> (A',B',C')  is the next tuple:  Bridge 3 ,  m=9j+2  [d2]
 ........................................................................
-m=9j+2  [j=0           ]     (Odd Pass 2)
+m=9j+2  [d2            ]     (Bridge 3)
    Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
       A' = -((q^2 - q + 1)*q^n - q)/(q - 1)
       B' = -(q^2 - (2*q^3 - 3*q^2 + 3*q - 1)*q^n - q + 1)/(q - 1)
       C' = -(q^3 - q^2 + q)*q^n
-   ==> (A',B',C')  is the next tuple:  Odd Pass 2 ,  m=9j+3  [j=0]
+   ==> (A',B',C')  is the next tuple:  Bridge 3 ,  m=9j+3  [d3]
 ........................................................................
-m=9j+3  [j=0           ]     (Odd Pass 2)
+m=9j+3  [d3            ]     (Bridge 3)
    Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
       A' = (q^2 - q + 1)*q^n/(q^4*q^{2j})
       B' = -((q^3 - q^2 + q)*q^{2j} - (2*q^2 - (q^3 - q^2 + q)*q^{2j} - 2*q + 2)*q^n)/((q^2 - q)*q^{2j})
       C' = (q^5*q^{4j} - (q^5 - q^4 + q^3)*q^{2j} + (q^4 - q^3 + q^2 - (q^5 - q^4 + q^3)*q^{2j})*q^n)/((q^2 - 2*q + 1)*q^{2j})
-   ==> (A',B',C')  is the next tuple:  Odd Pass 2 ,  m=4 (j=0)  [all j]
-------------------------------------------------------------------------
-   >>> JUNCTION:  Odd Pass 2 boundary feeds the 7-tuple bridge  (entry p2_bd -> bridge#1)
+   ==> (A',B',C')  is the next tuple:  Pass 2, row 2 at j=1/2 (first tuple) ,  m=4 (j=0)  [j=1/2]
 
-=== Odd Bridge : 7 j-free tuples ===
+
+########################################################################
+# STEP 3  --  PASS 2 rows m=9j+r  (both parities)
+########################################################################
+
+=== pass-2 rows 1..9 (u=q^{2j} free) ===
 ........................................................................
-bridge #1 [j-free]     (Odd Bridge)
+m=9j+1  [generic       ]     (Pass 2)
+   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
+      A' = (q^2 - q + 1)*q^n/(q^3*q^{2j})
+      B' = -((q^2 - q + 1)*q^{2j} - (2*q^2 - (q^2 - q + 1)*q^{2j} - 2*q + 2)*q^n)/((q - 1)*q^{2j})
+      C' = (q^4*q^{4j} - (q^5 - q^4 + q^3)*q^{2j} + (q^5 - q^4 + q^3 - (q^5 - q^4 + q^3)*q^{2j})*q^n)/((q^2 - 2*q + 1)*q^{2j})
+   ==> (A',B',C')  is the next tuple:  Pass 2 ,  m=9j+2  [generic]
+........................................................................
+m=9j+2  [generic       ]     (Pass 2)
+   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
+      A' = ((q^3 - q^2)*q^{4j} - (q^3 - q^2 + q)*q^{2j} - (q^3 - 2*q^2 - (q^3 - q^2 + q)*q^{2j} + 2*q - 1)*q^n)/((q^2 - q)*q^{2j})
+      B' = -((q^3 - q^2 + q)*q^{2j} + (2*q^3 - 4*q^2 - (q^3 - q^2 + q)*q^{2j} + 4*q - 2)*q^n)/((q^2 - q)*q^{2j})
+      C' = -(q^2 - q + 1)*q^n/(q*q^{2j})
+   ==> (A',B',C')  is the next tuple:  Pass 2 ,  m=9j+3  [generic]
+........................................................................
+m=9j+3  [generic       ]     (Pass 2)
+   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
+      A' = -q^{2j}/q
+      B' = -(q^2 - 2*(q^2 - q)*q^{2j} - (q^2 - q + 1)*q^n - q + 1)/(q - 1)
+      C' = -((q^4 - q^3)*q^{4j} - (q^4 - q^3 + q^2)*q^{2j} - (q^4 - 2*q^3 + 2*q^2 - (q^4 - q^3 + q^2)*q^{2j} - q)*q^n)/((q - 1)*q^{2j})
+   ==> (A',B',C')  is the next tuple:  Pass 2 ,  m=9j+4  [generic]
+........................................................................
+m=9j+4  [generic       ]     (Pass 2)
+   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
+      A' = -((q^3 - 4*q^2 + 4*q)*q^{4j} + (q^3 - 3*q^2 + 3*q - 2)*q^{2j} + (q^2 + (q^3 - 3*q^2 + 3*q - 2)*q^{2j} - q + 1)*q^n)/((q^2 - 2*q + 1)*q^{2j})
+      B' = -(q^2 + 2*(q^2 - 2*q)*q^{2j} + (q^2 - q + 1)*q^n - q + 1)/(q - 1)
+      C' = -q*q^{2j}
+   ==> (A',B',C')  is the next tuple:  Pass 2 ,  m=9j+5  [generic]
+........................................................................
+m=9j+5  [generic       ]     (Pass 2)
+   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
+      A' = 1/8*(q^5*q^{4j} + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j} + (q^4 - 5*q^3 + 9*q^2 + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j} - 8*q + 4)*q^n)/((q^4 - 2*q^3 + q^2)*q^{2j})
+      B' = 1/2*((q^4 - 2*q^3)*q^{4j} + (q^4 - 3*q^3 + 5*q^2 - 4*q + 2)*q^{2j} + (q^3 - 3*q^2 + (q^4 - 3*q^3 + 5*q^2 - 4*q + 2)*q^{2j} + 3*q - 2)*q^n)/((q^2 - 2*q + 1)*q^{2j})
+      C' = 1/2*((q^5 - 4*q^4 + 4*q^3)*q^{4j} + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j} + (q^4 - q^3 + q^2 + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j})*q^n)/((q^2 - 2*q + 1)*q^{2j})
+   ==> (A',B',C')  is the next tuple:  Pass 2 ,  m=9j+6  [generic]
+........................................................................
+m=9j+6  [generic       ]     (Pass 2)
+   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
+      A' = 2*(q^2 - q + 1)*q^n/(q^4*q^{2j})
+      B' = -((q^4 - q^3 + q^2)*q^{2j} + (2*q^3 - 6*q^2 + (q^4 - q^3 + q^2)*q^{2j} + 6*q - 4)*q^n)/((q^3 - q^2)*q^{2j})
+      C' = 1/2*(q^5*q^{4j} + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j} + (q^4 - 5*q^3 + 9*q^2 + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j} - 8*q + 4)*q^n)/((q^2 - 2*q + 1)*q^{2j})
+   ==> (A',B',C')  is the next tuple:  Pass 2 ,  m=9j+7  [generic]
+........................................................................
+m=9j+7  [generic       ]     (Pass 2)
+   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
+      A' = ((q^5 - q^4)*q^{4j} + (q^4 - q^3 + q^2)*q^{2j} - (q^3 - 2*q^2 + (q^4 - q^3 + q^2)*q^{2j} + 2*q - 1)*q^n)/((q^3 - q^2)*q^{2j})
+      B' = -((q^4 - q^3 + q^2)*q^{2j} - (2*q^3 - 4*q^2 + (q^4 - q^3 + q^2)*q^{2j} + 4*q - 2)*q^n)/((q^3 - q^2)*q^{2j})
+      C' = -(q^2 - q + 1)*q^n/(q^2*q^{2j})
+   ==> (A',B',C')  is the next tuple:  Pass 2 ,  m=9j+8  [generic]
+........................................................................
+m=9j+8  [generic       ]     (Pass 2)
+   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
+      A' = q^{2j}
+      B' = -(q^2 + 2*(q^3 - q^2)*q^{2j} - (q^2 - q + 1)*q^n - q + 1)/(q - 1)
+      C' = ((q^5 - q^4)*q^{4j} + (q^4 - q^3 + q^2)*q^{2j} - (q^3 - 2*q^2 + (q^4 - q^3 + q^2)*q^{2j} + 2*q - 1)*q^n)/((q - 1)*q^{2j})
+   ==> (A',B',C')  is the next tuple:  Pass 2 ,  m=9j+9  [generic]
+........................................................................
+m=9j+9  [generic       ]     (Pass 2)
+   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
+      A' = -(q^2*q^{4j} - (q^3 - q^2 + q)*q^{2j} + (q^3 - q^2 - (q^3 - q^2 + q)*q^{2j} + q)*q^n)/((q^2 - 2*q + 1)*q^{2j})
+      B' = -(q^2 - 2*q*q^{2j} + (q^2 - q + 1)*q^n - q + 1)/(q - 1)
+      C' = -q^{2j}
+   ==> (A',B',C')  is the next tuple:  Pass 2 ,  m=9(j+1)+1  [generic]
+
+(Odd n reads these rows at index m+5/2, i.e. u -> q^{+-1}u; Step 3 does not
+ involve u, so the transitions above give the odd ones.  Re-checked directly:)
+........................................................................
+m=9j+1  [odd, m+5/2    ]     (Pass 2 odd)
+   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
+      A' = q^{2j}/q
+      B' = -(q^2 + 2*(q^2 - q)*q^{2j} - (q^2 - q + 1)*q^n - q + 1)/(q - 1)
+      C' = ((q^4 - q^3)*q^{4j} + (q^4 - q^3 + q^2)*q^{2j} - (q^4 - 2*q^3 + 2*q^2 + (q^4 - q^3 + q^2)*q^{2j} - q)*q^n)/((q - 1)*q^{2j})
+   ==> (A',B',C')  is the next tuple:  Pass 2 odd ,  m=9j+2  [odd, m+5/2]
+........................................................................
+m=9j+2  [odd, m+5/2    ]     (Pass 2 odd)
+   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
+      A' = -(q^3*q^{4j} - (q^3 - q^2 + q)*q^{2j} + (q^2 - (q^3 - q^2 + q)*q^{2j} - q + 1)*q^n)/((q^2 - 2*q + 1)*q^{2j})
+      B' = (2*q^2*q^{2j} - q^2 - (q^2 - q + 1)*q^n + q - 1)/(q - 1)
+      C' = -q*q^{2j}
+   ==> (A',B',C')  is the next tuple:  Pass 2 odd ,  m=9j+3  [odd, m+5/2]
+........................................................................
+m=9j+3  [odd, m+5/2    ]     (Pass 2 odd)
+   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
+      A' = (q^2 - q + 1)*q^n/(q^4*q^{2j})
+      B' = -((q^3 - q^2 + q)*q^{2j} - (2*q^2 - (q^3 - q^2 + q)*q^{2j} - 2*q + 2)*q^n)/((q^2 - q)*q^{2j})
+      C' = (q^5*q^{4j} - (q^5 - q^4 + q^3)*q^{2j} + (q^4 - q^3 + q^2 - (q^5 - q^4 + q^3)*q^{2j})*q^n)/((q^2 - 2*q + 1)*q^{2j})
+   ==> (A',B',C')  is the next tuple:  Pass 2 odd ,  m=9j+4  [odd, m+5/2]
+........................................................................
+m=9j+4  [odd, m+5/2    ]     (Pass 2 odd)
+   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
+      A' = ((q^5 - q^4)*q^{4j} - (q^4 - q^3 + q^2)*q^{2j} - (q^3 - 2*q^2 - (q^4 - q^3 + q^2)*q^{2j} + 2*q - 1)*q^n)/((q^3 - q^2)*q^{2j})
+      B' = -((q^4 - q^3 + q^2)*q^{2j} + (2*q^3 - 4*q^2 - (q^4 - q^3 + q^2)*q^{2j} + 4*q - 2)*q^n)/((q^3 - q^2)*q^{2j})
+      C' = -(q^2 - q + 1)*q^n/(q^2*q^{2j})
+   ==> (A',B',C')  is the next tuple:  Pass 2 odd ,  m=9j+5  [odd, m+5/2]
+........................................................................
+m=9j+5  [odd, m+5/2    ]     (Pass 2 odd)
+   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
+      A' = -q^{2j}
+      B' = -(q^2 - 2*(q^3 - q^2)*q^{2j} - (q^2 - q + 1)*q^n - q + 1)/(q - 1)
+      C' = -((q^5 - q^4)*q^{4j} - (q^4 - q^3 + q^2)*q^{2j} - (q^3 - 2*q^2 - (q^4 - q^3 + q^2)*q^{2j} + 2*q - 1)*q^n)/((q - 1)*q^{2j})
+   ==> (A',B',C')  is the next tuple:  Pass 2 odd ,  m=9j+6  [odd, m+5/2]
+........................................................................
+m=9j+6  [odd, m+5/2    ]     (Pass 2 odd)
+   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
+      A' = -((q^5 - 4*q^4 + 4*q^3)*q^{4j} + (q^4 - 3*q^3 + 3*q^2 - 2*q)*q^{2j} + (q^2 + (q^4 - 3*q^3 + 3*q^2 - 2*q)*q^{2j} - q + 1)*q^n)/((q^3 - 2*q^2 + q)*q^{2j})
+      B' = -(q^2 + 2*(q^3 - 2*q^2)*q^{2j} + (q^2 - q + 1)*q^n - q + 1)/(q - 1)
+      C' = -q^2*q^{2j}
+   ==> (A',B',C')  is the next tuple:  Pass 2 odd ,  m=9j+7  [odd, m+5/2]
+........................................................................
+m=9j+7  [odd, m+5/2    ]     (Pass 2 odd)
+   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
+      A' = 1/8*(q^7*q^{4j} + (q^6 - 3*q^5 + 3*q^4 - 2*q^3)*q^{2j} + (q^4 - 5*q^3 + 9*q^2 + (q^6 - 3*q^5 + 3*q^4 - 2*q^3)*q^{2j} - 8*q + 4)*q^n)/((q^5 - 2*q^4 + q^3)*q^{2j})
+      B' = 1/2*((q^6 - 2*q^5)*q^{4j} + (q^5 - 3*q^4 + 5*q^3 - 4*q^2 + 2*q)*q^{2j} + (q^3 - 3*q^2 + (q^5 - 3*q^4 + 5*q^3 - 4*q^2 + 2*q)*q^{2j} + 3*q - 2)*q^n)/((q^3 - 2*q^2 + q)*q^{2j})
+      C' = 1/2*((q^6 - 4*q^5 + 4*q^4)*q^{4j} + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j} + (q^3 - q^2 + (q^5 - 3*q^4 + 3*q^3 - 2*q^2)*q^{2j} + q)*q^n)/((q^2 - 2*q + 1)*q^{2j})
+   ==> (A',B',C')  is the next tuple:  Pass 2 odd ,  m=9j+8  [odd, m+5/2]
+........................................................................
+m=9j+8  [odd, m+5/2    ]     (Pass 2 odd)
+   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
+      A' = 2*(q^2 - q + 1)*q^n/(q^5*q^{2j})
+      B' = -((q^5 - q^4 + q^3)*q^{2j} + (2*q^3 - 6*q^2 + (q^5 - q^4 + q^3)*q^{2j} + 6*q - 4)*q^n)/((q^4 - q^3)*q^{2j})
+      C' = 1/2*(q^7*q^{4j} + (q^6 - 3*q^5 + 3*q^4 - 2*q^3)*q^{2j} + (q^4 - 5*q^3 + 9*q^2 + (q^6 - 3*q^5 + 3*q^4 - 2*q^3)*q^{2j} - 8*q + 4)*q^n)/((q^3 - 2*q^2 + q)*q^{2j})
+   ==> (A',B',C')  is the next tuple:  Pass 2 odd ,  m=9j+9  [odd, m+5/2]
+........................................................................
+m=9j+9  [odd, m+5/2    ]     (Pass 2 odd)
+   Step 3 computes (A',B',C'); the identity in q (all n,j) gives (A',B',C') = True
+      A' = ((q^3 - q^2)*q^{4j} + (q^3 - q^2 + q)*q^{2j} - (q^3 - 2*q^2 + (q^3 - q^2 + q)*q^{2j} + 2*q - 1)*q^n)/((q^2 - q)*q^{2j})
+      B' = -((q^3 - q^2 + q)*q^{2j} - (2*q^3 - 4*q^2 + (q^3 - q^2 + q)*q^{2j} + 4*q - 2)*q^n)/((q^2 - q)*q^{2j})
+      C' = -(q^2 - q + 1)*q^n/(q*q^{2j})
+   ==> (A',B',C')  is the next tuple:  Pass 2 odd ,  m=9(j+1)+1  [odd, m+5/2]
+------------------------------------------------------------------------
+   >>> JUNCTION:  Pass 2 boundary tuple (pass-2 row 1 at q^{2j}=q^{n-2}, both parities) = bridge 1, b1
+       generic row at u = q^{2j_B} = q^n/q^2 gives (A,B,C) = Bridge 1, b1 :  identity in q, q^n = True
+
+
+########################################################################
+# STEP 3  --  BRIDGE 1 (both parities):  b1..b8, j-free -> Pass1[m=2]
+########################################################################
+
+(Identities in QQ(q,w), w=q^n: free of j and of the parity of n.)
+........................................................................
+b1 [j-free]     (Bridge 1)
+   Step 3 computes (A',B',C'); the identity in q (all n) gives (A',B',C') = True
+      A' = (q^5 - 2*q^4 + 3*q^3 - 2*q^2 - (q^3 - q^2 + 2*q - 1)*q^n + q)/(q^2 - q)
+      B' = -(2*q^5 - 2*q^4 + 2*q^3 + q^2 - (2*q^3 - q^2 + 3*q - 1)*q^n - q + 1)/(q - 1)
+      C' = (q^6 + q^3 - (q^4 + q^2)*q^n)/(q - 1)
+   ==> (A',B',C')  is:  Bridge 1 ,  b2
+........................................................................
+b2 [j-free]     (Bridge 1)
    Step 3 computes (A',B',C'); the identity in q (all n) gives (A',B',C') = True
       A' = -q^n/q^3
       B' = -(q^3 - q^2 - (q^3 - q^2 + 3*q - 2)*q^n + q)/(q^2 - q)
       C' = (q^6 - 2*q^5 + 3*q^4 - 2*q^3 + q^2 - (q^4 - q^3 + 2*q^2 - q)*q^n)/(q - 1)
-   ==> (A',B',C')  is:  Odd Bridge ,  bridge #2
+   ==> (A',B',C')  is:  Bridge 1 ,  b3
 ........................................................................
-bridge #2 [j-free]     (Odd Bridge)
+b3 [j-free]     (Bridge 1)
    Step 3 computes (A',B',C'); the identity in q (all n) gives (A',B',C') = True
       A' = -(q^4 + q^3 - q^2 + (q^3 - 2*q^2 + 2*q - 4)*q^n + 2*q)/(q^2 - q)
       B' = -(q^3 - q^2 + (q^3 - q^2 + 3*q - 4)*q^n + q)/(q^2 - q)
       C' = -q^n/q
-   ==> (A',B',C')  is:  Odd Bridge ,  bridge #3
+   ==> (A',B',C')  is:  Bridge 1 ,  b4
 ........................................................................
-bridge #3 [j-free]     (Odd Bridge)
+b4 [j-free]     (Bridge 1)
    Step 3 computes (A',B',C'); the identity in q (all n) gives (A',B',C') = True
       A' = 1/8*(q^3 - 3*q^2 + (q^2 - 2*q + 2)*q^n + 3*q - 2)/(q - 1)
       B' = 1/2*(q^4 - q^3 - q^2 + (q^3 - 2*q^2 + 4*q - 2)*q^n + 2*q - 2)/(q - 1)
       C' = 1/2*(q^5 + q^4 - q^3 + 2*q^2 + (q^4 - 2*q^3 + 2*q^2 - 4*q)*q^n)/(q - 1)
-   ==> (A',B',C')  is:  Odd Bridge ,  bridge #4
+   ==> (A',B',C')  is:  Bridge 1 ,  b5
 ........................................................................
-bridge #4 [j-free]     (Odd Bridge)
+b5 [j-free]     (Bridge 1)
    Step 3 computes (A',B',C'); the identity in q (all n) gives (A',B',C') = True
       A' = 2*q^n/q^2
       B' = -(q^2 - (q^2 - 3*q + 3)*q^n - q + 1)/(q - 1)
       C' = -1/2*(q^5 - 3*q^4 + 3*q^3 - 2*q^2 + (q^4 - 2*q^3 + 2*q^2)*q^n)/(q - 1)
-   ==> (A',B',C')  is:  Odd Bridge ,  bridge #5
+   ==> (A',B',C')  is:  Bridge 1 ,  b6
 ........................................................................
-bridge #5 [j-free]     (Odd Bridge)
+b6 [j-free]     (Bridge 1)
    Step 3 computes (A',B',C'); the identity in q (all n) gives (A',B',C') = True
       A' = q*q^n
       B' = -(q^2 + (q^2 - 3*q + 1)*q^n - q + 1)/(q - 1)
       C' = -q^n
-   ==> (A',B',C')  is:  Odd Bridge ,  bridge #6
+   ==> (A',B',C')  is:  Bridge 1 ,  b7
 ........................................................................
-bridge #6 [j-free]     (Odd Bridge)
+b7 [j-free]     (Bridge 1)
    Step 3 computes (A',B',C'); the identity in q (all n) gives (A',B',C') = True
       A' = q^n/q^2
       B' = -(q^2 + (q^2 - 3*q + 1)*q^n - q + 1)/(q - 1)
       C' = -q^3*q^n
-   ==> (A',B',C')  is:  Odd Bridge ,  bridge #7
+   ==> (A',B',C')  is:  Bridge 1 ,  b8
 ........................................................................
-bridge #7 [j-free]     (Odd Bridge)
+b8 [j-free]     (Bridge 1)
    Step 3 computes (A',B',C'); the identity in q (all n) gives (A',B',C') = True
       A' = (q^3 - 3*q^2 + (q^2 - 2*q + 2)*q^n + 3*q - 2)/(q - 1)
       B' = -(q^2 - (q^2 - 3*q + 3)*q^n - q + 1)/(q - 1)
       C' = -q^n
-   ==> (A',B',C')  is:  Odd Pass 1 ,  m=2  [j=0]   (re-enters; closes the odd cycle)
+   ==> (A',B',C')  is:  Pass 1 ,  m=2  [j=0]   (re-enters; closes the cycle, both parities)
+------------------------------------------------------------------------
+   >>> b8 = (-A1, B1, -C1), A1,B1,C1 the initial tuple (Pass 1, m=1) : True
+       hence b8 != initial tuple: pre-period exactly 1.
 
 ########################################################################
-RESULT: STEP 3 VERIFIED for EVERY pass-table transition, as a symbolic
-  identity in q (u=q^{2j}, w=q^n free) -- hence for ALL n,j at once.
+RESULT: STEP 3 VERIFIED for EVERY pass-table transition, and every pass
+  junction, as a symbolic identity in q (u=q^{2j}, w=q^n free) -- hence
+  for ALL n,j at once.
   Each tuple's successor (A',B',C') is named above, tracing the full orbit:
-  Even: P1 -> P2 -> P3 -> (P4=P2).   Odd: P1 -> P2 -> bridge -> P1.
+  n even: P1 -> Bridge 2 -> P2 -> Bridge 1 -> P1[m=2]
+  n odd : P1 -> Bridge 3 -> P2 -> Bridge 1 -> P1[m=2]   (pre-period 1).
 ########################################################################

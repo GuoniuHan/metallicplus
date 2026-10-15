@@ -1,12 +1,12 @@
 # =====================================================================
-#  Shared harness for the paper "H-fraction of q-metallic numbers,
-#  shift l = n+2".   Algorithm NextABC (delta = 2), Han 2016 / ejc_han.
+#  Algorithm NextABC (delta = 2) of Han 2016, over QQ[q], for the paper
+#  "Hankel determinants for the (n+2)-shifted q-metallic numbers".
 #
-#  NextABC works only for a CONCRETE integer n: every pass-tuple is
-#  instantiated at concrete (n, j) and returns an element of QQ[q].
-#  Verification strategy: run for n = 2, 3 and for the even/odd
-#  families n = 4,6,...,N and n = 5,7,...,N (N estimated in the
-#  driver), checking NextABC(tuple m) = (tuple m+1 ; k, a, D).
+#  NextABC works for a CONCRETE integer n: a tuple is instantiated at a
+#  concrete (n, j) and the result is an element of QQ[q].  It is used only
+#  to compute the base cases n = 1, 2, 3 (verify_base.sage).  The proof for
+#  all n >= 4 is symbolic: certify_step3.sage, certify_steps12.sage,
+#  certify_sign.sage.
 #
 #  load('nextabc.sage') from a driver, then use nextABC / Q / R / q.
 # =====================================================================
