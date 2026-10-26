@@ -2,7 +2,7 @@
 # Variables: w = q^n, u = q^{2j}  (q^{4j}=u^2, q^{n-2j}=w/u, q^{2j+c}=u q^c, ...).
 # Every tuple entry is an element of Q(q,u,w) with denominator lambda*q^s*(q-1)^e*u^b*w^c.
 # The (K,D) of each tuple are those printed in the paper; Steps 1,2 are certified
-# in certify_steps12.sage.  Step 3 (eqs. (14)-(16) of the paper) is checked here
+# in certify_steps12.sage.  Step 3 (eqs. (2.7)-(2.9) of the paper) is checked here
 # to hold IDENTICALLY in Q(q,u,w)  =>  all n,j at once.
 
 Rs = PolynomialRing(QQ, ['qs','u','w']); qs,u,w = Rs.gens(); Fs = Rs.fraction_field()
@@ -28,8 +28,9 @@ def check(src, dst, label):
     print("  %-26s symbolic Step3: %-5s  %s" % (label, sym, "OK" if sym else "*** FAIL"))
     return sym
 
-# ============================ EVEN PASS 1 (generic block) ================
-# r = 1..9, generic j (>=1 for r<=6, all j for r=7,8,9).
+# ============================ PASS 1 (generic rows, Appendix D) ==========
+# r = 1..9, generic j (>=1 for r<=6, all j for r=7,8,9); the same formulas
+# for every n >= 4, even or odd.
 Q = Qs
 gp1 = {}
 gp1[1] = (-((Q*qs^2-4*Q*qs+4*Q)*u^2 + (Q*qs-2*Q)*u + ((Q*qs-2*Q)*u+qs)*w)/((qs^2-2*qs+1)*u),
@@ -85,7 +86,8 @@ def run_generic(name, gp):
 
 run_generic("PASS 1", gp1)
 
-# ============================ EVEN PASS 2 (generic block) ================
+# ============================ PASS 2 (generic rows, Appendix E) ==========
+# rows m=9j+r, j an integer (n even) or a half-integer (n odd).
 gp2 = {}
 gp2[1] = ((Q*u*qs + (Q*u*qs-Q*qs)*w - qs^2*u^2)/((qs^2-2*qs+1)*u),
           -(Q*w + Q - 2*u*qs)/(qs-1),
@@ -125,9 +127,8 @@ gp2[9] = (u,
           u, -(Q - u*qs^2)/(qs-1))
 run_generic("PASS 2 rows m=9j+r", gp2)
 
-# odd pass 1 formulas are IDENTICAL to even pass 1 (verified by diff) -> covered.
 
-# ============================ ODD PASS 2 (derived, no new data) ==========
+# ============================ PASS 2 for odd n (derived, no new data) =====
 # Pass 2 is ONE generic family gp2 = pass-2 rows 1..9 for both parities.  For odd n the
 # tuple at pass-2 index m is the generic row at the half-integer index m+5/2:
 #   m=9j+r  ->  row r-2 at j+1/2  (3<=r<=9),   row r+7 at j-1/2  (r=1,2),
@@ -144,7 +145,7 @@ run_generic("PASS 2 odd (index m+5/2)", go2)
 # pass-2 boundary tuple: its (A,B,C) is the generic pass-2 row r_B at the last
 # block -- even: gp2[1] at u=w/q^2;  odd: go2[3] at u=w/q^3 (both checked in
 # the JUNCTIONS section below) -- but its Steps-1,2 data are (K,D)=(q,Q), not
-# the generic (q,1-q).  After br[8] the orbit re-enters pass 1 at m=2.
+# the generic (q,1-q).  After br[8] the sequence re-enters pass 1 at m=2.
 br = {}
 br[1] = (-(qs^4-(qs^2+1)*w+qs)/(qs-1),
          -(qs^3+(qs^3-qs^2+qs-2)*w-qs^2+qs)/(qs^2-qs),
@@ -178,7 +179,7 @@ br[8] = ((1/qs^2)*w,
          (-qs^2+qs-1)/(qs-1) + ((-qs^2+3*qs-1)/(qs-1))*w,
          -qs^3*w,
          w/qs^2, (-qs^2+qs-1)/(qs-1) + (1/(qs-1))*w)
-# exit target: pass 1, m=2 (j=0)  [even p1 r=2 j=0; odd p1 identical]
+# re-entry after b8: pass 1, m=2 (j=0), the same for both parities
 p1_m2 = (((qs^2-2*qs+2)*w + Q*qs - 2*Q)/(qs-1),
          ((qs^2-3*qs+3)*w - Q)/(qs-1),
          -w, Fs(2), 1/2*qs+1)
@@ -194,8 +195,8 @@ RESULTS.append(("BRIDGE 1", okb))
 def at_u(t, uval):    # specialise a generic tuple to a fixed j (u = q^{2j})
     return tuple(Fs(x).subs({u: uval}) for x in t)
 
-# ==================== EVEN PASS 1: j=0 special chain (r=1..6) ============
-# r1..r5 special->special ; r6 special -> r7 generic at u=1.
+# ==================== PASS 1: special rows m=1..6 at j=0 (Appendix D) =====
+# m=1..5 special->special ; m=6 special -> row 7 generic at u=1 (j=0).
 s1 = {}
 s1[1] = (-w/qs^2, -((qs^2-3*qs+1)*w + Q)/(qs-1), w*qs^3, -w/qs^2, -(Q-w)/(qs-1))
 s1[2] = (((qs^2-2*qs+2)*w+Q*qs-2*Q)/(qs-1), ((qs^2-3*qs+3)*w-Q)/(qs-1), -w, Fs(2), 1/2*qs+1)
@@ -210,18 +211,19 @@ s1[5] = ((Q^2*qs-(qs^3-qs^2+2*qs-1)*w)/(qs^2-qs), ((qs^3-qs^2+3*qs-2)*w-Q*qs)/(q
 s1[6] = ((Q*qs^2-(qs^2+1)*w+Q*qs)/(qs-1), -(2*Q*qs^3-(2*qs^3-qs^2+3*qs-1)*w+Q)/(qs-1),
          (Q^2*qs^2-(qs^4-qs^3+2*qs^2-qs)*w)/(qs-1), -qs, Q)
 
-def run_special(name, sp, last, gen_next, uval):
-    print("=== %s (j-special chain) ===" % name)
+def run_special(name, sp, last, gen_next, uval, lab, nxt):
+    print("=== %s (j-free chain) ===" % name)
     ok = True
     for r in range(1, last):
-        ok &= check(sp[r], sp[r+1], "%s  s%d -> s%d" % (name, r, r+1))
-    ok &= check(sp[last], at_u(gen_next, uval), "%s  s%d -> generic" % (name, last))
+        ok &= check(sp[r], sp[r+1], "%s%d -> %s%d" % (lab, r, lab, r+1))
+    ok &= check(sp[last], at_u(gen_next, uval), "%s%d -> %s" % (lab, last, nxt))
     print("  --> %s" % ("ALL OK" if ok else "FAILURES"))
     RESULTS.append((name, ok)); return ok
 
-run_special("PASS 1 j=0", s1, 6, gp1[7], Fs(1))
+run_special("PASS 1 m=1..6 (j=0)", s1, 6, gp1[7], Fs(1), "m=", "pass 1 row 7, j=0")
 
-# ==================== EVEN PASS 2: j=0 special chain (r=1..5) ============
+# ==================== BRIDGE 2: c1..c5, n even (Appendix G) ==============
+# c5 -> pass 2 row 6 at j=0.
 s2 = {}
 s2[1] = ((Q*w+2*qs^2-5*qs+2)/(8*(qs-1)), (2*qs^3+Q*w*qs-3*qs^2+2*qs-2)/(2*(qs-1)),
          (2*qs^4-qs^3+(Q*qs^2-4*Q)*w+2*qs^2)/(2*(qs-1)), Fs(-1/4), 3/2*qs+1)
@@ -233,24 +235,27 @@ s2[4] = ((2*qs^3+(Q*qs+Q)*w-2*qs^2-2*qs)/(4*(qs^2-qs)), (Q*w-Q*qs)/(qs^2-qs),
          -Q*w/qs, Fs(1/2), -2*qs+1)
 s2[5] = (-2*(Q*w+2*qs^2-5*qs+2)/(qs-1), -(4*qs^3+(2*Q*qs+Q)*w-7*qs^2-qs+1)/(qs-1),
          -(2*qs^4-2*qs^3+(Q*qs^2+Q*qs)*w-2*qs^2)/(2*(qs-1)), Fs(4), 3/2*qs+1)
-run_special("BRIDGE 2 c1..c5 (n even)", s2, 5, gp2[6], Fs(1))
+run_special("BRIDGE 2 c1..c5 (n even)", s2, 5, gp2[6], Fs(1), "c", "pass 2 row 6, j=0")
 
-# ==================== ODD PASS 2: j=0 special chain (r=1..3) =============
+# ==================== BRIDGE 3: d1..d3, n odd (Appendix H) ===============
+# d3 -> pass 2 row 2 at j=1/2 (= go2[4] at u=1).
 o2 = {}
 o2[1] = ((Q*w-qs)/(qs-1), -((Q*qs-2*Q)*w+Q*qs)/(qs^2-qs), -Q*w/qs^2, qs, Q)
 o2[2] = (-Q*w/qs, ((2*Q*qs-Q)*w-Q)/(qs-1), (qs^3-Q*w*qs^2)/(qs-1), -w/qs, ((2*qs-1)*w-1)/(qs-1))
 o2[3] = (-(Q*w-qs)/(qs-1), ((2*Q*qs-Q)*w-Q)/(qs-1), -Q*w*qs, -qs, Q)
-run_special("BRIDGE 3 d1..d3 (n odd)", o2, 3, go2[4], Fs(1))
+run_special("BRIDGE 3 d1..d3 (n odd)", o2, 3, go2[4], Fs(1), "d", "pass 2 row 2, j=1/2")
 
 # ==================== JUNCTIONS (symbolic, all n) =======================
-# A pass ends at its boundary index B = 9j_B + r_B, with j_B = n/2-1 (even n,
-# u = q^{2j_B} = w/q^2) or j_B = (n-3)/2 (odd n, u = w/q^3).  The step
-# m = B-1 -> B is a generic transition (its Step-3 identity is checked above,
-# for all u,w), so the tuple at B has (A,B,C) = generic row r_B at u = u_B.
-# Its Steps-1,2 data are NOT those of the generic row: the tuple at B is the
-# first tuple of the next pass (or of the bridge).  The value identity
-#     row r_B (A,B,C) at u=u_B  ==  next pass, m=1 (A,B,C)
-# is an identity in QQ(q,w): proved here for all n, no value substituted.
+# Where a pass ends (paper, Sec. 3.4 and Remark 3.4), the step into the bridge
+# is a generic Step-3 transition (checked above for all u,w), so the first
+# bridge entry has the triple (A,B,C) of the NEXT generic row r_B, taken at
+# the last block u_B = q^{2j_B}:
+#     n even: pass 1 row 2 at u = w/q^2 (d=2)   ->  c1
+#     n odd : pass 1 row 6 at u = w/q^3 (d=3)   ->  d1
+#     both  : pass 2 row 1 at u = w/q^2 (d=2)   ->  b1
+# but its own (K,D) (those of the bridge entry, not of the generic row).
+# The value identity  row r_B (A,B,C) at u=u_B == bridge entry (A,B,C)  is an
+# identity in QQ(q,w): proved here for all n, no value substituted.
 def junction(label, gen_row, uB, dst):
     lhs = tuple(Fs(x).subs({u: uB}) for x in gen_row[:3])
     ok = (lhs == tuple(Fs(x) for x in dst[:3]))
@@ -268,9 +273,9 @@ print("SECTIONS: %d   (all: %s)"
 print("Coverage: pass 1 (generic + j=0 specials), both parities;")
 print("          pass 2 rows m=9j+r (both parities; odd n at half-integer j);")
 print("          bridge 1 (b1..b8), bridge 2 (c1..c5), bridge 3 (d1..d3): j-free, valid for all n.")
-print("          Pass<->pass boundaries: the step m=B-1 -> B is inside a pass's")
-print("          generic range (a generic identity above), and the junction")
-print("          VALUES pass(k)[boundary]==pass(k+1)[m=1] are symbolic identities.")
+print("          Pass->bridge steps: the step into the bridge is a generic identity")
+print("          above, and the junction VALUES (next generic row at the last block")
+print("          == first bridge entry, triples only) are symbolic identities.")
 print("Each transition: symbolic Step 3 identity in Q(q,u,w) (=> all n,j).")
-print("Orbit: P1 -> Bridge 2 (n even) / Bridge 3 (n odd) -> P2 -> Bridge 1 -> P1[m=2].")
+print("Sequence: P1 -> Bridge 2 (n even) / Bridge 3 (n odd) -> P2 -> Bridge 1 -> P1[m=2].")
 print("SUMMARY:", "ALL GREEN" if all(o for _,o in RESULTS) else "FAILURES")

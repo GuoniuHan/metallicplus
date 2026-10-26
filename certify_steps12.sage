@@ -1,17 +1,18 @@
-# UNIFORM (all n,j) certificate for Steps 1 and 2 of Algorithm N,
-# (Lemma 9 of the paper) by the POLYNOMIALITY CRITERION (Lemma 8):
+# UNIFORM (all n,j) certificate for Steps 1 and 2 of Algorithm NextABC,
+# (condition (S12) of Corollary 3.2 and Proposition 3.3 of the paper) by the
+# POLYNOMIALITY CRITERION (Lemma 3.1):
 #
-#   Let (A,B,C) be admissible (A,B,C in QQ[q], B(0)=1, C(0)=0), k>=0, a!=0,
-#   D in QQ[q] with D(0)=1, deg D <= k+1, and let A*,B*,C* be given by Step 3.
+#   Let (A,B,C) satisfy (3.4): A,B,C in QQ[q], B(0)=1, C(0)=0; let a!=0, and
+#   let (k,D) satisfy (3.5): k>=0, D in QQ[q], D(0)=1, deg D <= k+1; and let A*,B*,C* be given by Step 3.
 #   Then (k,a,D) is the output of Steps 1,2 of NextABC(A,B,C)
 #   IFF  A*, B* are polynomials and B*(0)=1.
 #
 # So for every tuple (A,B,C;K,D) of the pass-tables we prove, on a cone of
 # (n,j), the four facts
-#   (i)   (A,B,C) is admissible;
-#   (ii)  k >= 0, D(0)=1, deg_q D <= k+1   (K = a q^k);
+#   (i)   (A,B,C) satisfies (3.4);
+#   (ii)  (3.5): k >= 0, D(0)=1, deg_q D <= k+1   (K = a q^k);
 #   (iii) the Step-3 image (A*,B*) is polynomial with B*(0)=1;
-# and check that the orbit uses the tuple only inside that cone (coverage).
+# and check that the sequence uses the tuple only inside that cone (coverage).
 #
 # Each entry X is a rational function of q, u=q^{2j}, w=q^n whose denominator
 # is lambda q^s (q-1)^e u^b w^c.  "Polynomial" is proved in two parts:
@@ -19,10 +20,10 @@
 #       (j,n): expand at q=1+eps with j,n symbolic (binomial series) -- so X
 #       is a Laurent polynomial in q for every (n,j);
 #   (b) X has no negative power of q: write X = sum_{(b,c)} P_{b,c}(q) u^b w^c;
-#       the block (b,c) has q-order val_q P_{b,c} + 2jb + nc, an AFFINE
+#       the term (b,c) has q-order val_q P_{b,c} + 2jb + nc, an AFFINE
 #       function of (j,n), and we require it >= 0 on the cone
 #           C(j0,d0) = { j >= j0 ,  n-2j >= d0 }     (d0 is called N in the code).
-# "affine g >= target on C" is a finite check, eq. (21) of the paper: with
+# "affine g >= target on C" is a finite check, eq. (3.9) of the paper: with
 # j=j0+s, n-2j=d0+s' (s,s'>=0), g = G0 + Gs s + Gt s', and g>=target on C iff
 # Gs,Gt>=0, G0>=target.
 # Everything below is exact; no value of n or j is ever substituted.
@@ -105,7 +106,7 @@ def is_one_plus(X, j0, N):                # X = 1 + O(q): block 1 starts with 1,
     if (0,0) not in bl or qval(bl[(0,0)]) != 0 or qlc(bl[(0,0)]) != 1: return False
     return all(ge_on_cone(affine(bc,qval(P)), 1, j0, N) for bc,P in bl.items() if bc != (0,0))
 
-def admissible(A,B,C, j0, N):             # (i): A,B,C polynomials, B(0)=1, C(0)=0
+def cond26(A,B,C, j0, N):             # (i): A,B,C polynomials, B(0)=1, C(0)=0
     return (all(qm1_ok(X) for X in (A,B,C)) and order_ge(A,0,j0,N)
             and is_one_plus(B,j0,N) and order_ge(C,1,j0,N))
 
@@ -141,14 +142,14 @@ def least(test, j0, lo=-4):
 def certify(tpl, j0):
     """least N for (i), (ii), (iii) separately, and for all three (= the cone)."""
     A,B,C,K,D = tpl
-    Ni   = least(lambda j0,N: admissible(A,B,C,j0,N), j0)
+    Ni   = least(lambda j0,N: cond26(A,B,C,j0,N), j0)
     Nii  = least(lambda j0,N: kD_ok(K,D,j0,N), j0)
     Niii = least(lambda j0,N: image_ok(tpl,j0,N), j0)
     if None in (Ni,Nii,Niii): return Ni,Nii,Niii,None
     return Ni, Nii, Niii, max(Ni,Nii,Niii)
 
 # ======================================================================
-#  Walk the pass-tables in orbit order, with their case conditions.
+#  Walk the pass-tables in the order of the sequence, with their case conditions.
 #  Coverage: the least d=n-2j at which a generic tuple is used is a constant
 #  read off from the pass boundary (B_p = 9n/2 + const); a j-free tuple
 #  (special row j=0, bridge) is used for every n>=4.
@@ -171,11 +172,11 @@ BR = [spc(br,r,"b%d"%r) for r in range(1,9)]
 WALK = [("Pass 1, even n", E1),
         ("Bridge 2 (c1..c5) + Pass 2, even n", E2),
         ("Pass 1, odd n  (same formulas, odd boundary)", O1),
-        ("Bridge 3 (d1..d3) + Pass 2 (rows at half-integer j), odd n", O2),
+        ("Bridge 3 (d1..d3) + Pass 2 (rows at half-integer j), odd n\n    (pass 2 is walked by the integer index m=9j+r of go2, m+5/2 = paper index;\n     j and n-2j in the cones refer to this integer index)", O2),
         ("Bridge 1 (b1..b8, both parities, j-free)", BR)]
 
 print("PASS-TABLE-ORDERED VERIFICATION of Steps 1 & 2 by the polynomiality criterion")
-print("  (i) tuple admissible   (ii) k>=0, D(0)=1, deg D<=k+1   (iii) Step-3 image admissible")
+print("  (i) triple satisfies (3.4)   (ii) (3.5): k>=0, D(0)=1, deg D<=k+1   (iii) Step-3 image satisfies (3.4)")
 print("  cones: generic {j>=j0, n-2j>=N};  j-free tuples {n>=N}.  Uniform in (n,j).")
 FAIL = []
 for pname, walk in WALK:
@@ -186,6 +187,8 @@ for pname, walk in WALK:
         Ni, Nii, Niii, N = certify(tpl, j0)
         lab = ("m=9j+%d"%r) if kind=='gen' else ("%-7s"%cond if cond[0] in "bcd" else "m=%d (j=0)"%r)
         if kind=='gen': lab += " [%s]"%cond
+        if dic is go2:   # odd pass-2 index m -> row of Appendix E at half-integer j
+            lab += "  = App. E row %d at j%s1/2" % ((r-2, "+") if r >= 3 else (r+7, "-"))
         if N is None:
             FAIL.append((pname,lab)); print("  %-16s *** NOT PROVED (%s,%s,%s)"%(lab,Ni,Nii,Niii)); continue
         ok = N <= dm
@@ -210,17 +213,17 @@ for name, fam, j0of, tab in (("pass 1, row", gp1, lambda r: 1 if r<=6 else 0, P1
                              ("pass 2, row", gp2, lambda r: 1 if r==1 else (1/2 if r<=5 else 0), P2)):
     for r in range(1,10):
         A,B,C = fam[r][:3]; j0 = j0of(r)
-        p = max(least(lambda j0,N: admissible(A,B,C,j0,N), j0), 0)
+        p = max(least(lambda j0,N: cond26(A,B,C,j0,N), j0), 0)
         ok = (p == tab[r-1])
         if not ok: FAIL.append((name,r,"range"))
-        print("  %s %d : admissible on {j>=%s, n-2j>=%d}   %s"%(name, r, j0, p, "OK" if ok else "*** MISMATCH"))
+        print("  %s %d : (3.4) holds on {j>=%s, n-2j>=%d}   %s"%(name, r, j0, p, "OK" if ok else "*** MISMATCH"))
 
 def single_order(X):
     bl = blocks(X); assert len(bl)==1
     (bc,P), = bl.items(); c = affine(bc,qval(P))
     assert c['Cj'] + 2*c['Cn'] == 0           # order depends on d=n-2j only
     return c['K'], c['Cn']                    # order = K + Cn*d
-print("\n=== EXITS: the successor row is not admissible (A has a negative power of q) ===")
+print("\n=== EXITS (where a pass ends, Remark 3.4): the successor row does not satisfy (3.4) (A has a negative power of q) ===")
 for lab, X, d in (("pass 1, n even: row 3 at n-2j=2", gp1[3][0], 2),
                   ("pass 1, n odd : row 7 at n-2j=3", gp1[7][0], 3),
                   ("pass 2        : row 2 at n-2j=2", gp2[2][0], 2)):
@@ -233,9 +236,9 @@ print("\n"+"#"*74)
 if FAIL:
     print("RESULT: *** FAILURE ***  %s"%FAIL); sys.exit(1)
 print("RESULT: STEPS 1 & 2 PROVED UNIFORMLY for ALL (n,j).")
-print("  Every pass-table tuple, walked in orbit order with its case condition:")
-print("  the tuple and its Step-3 image are admissible and D has the right shape")
-print("  on a cone containing every place where the orbit uses the tuple, so by")
+print("  Every pass-table tuple, walked in the order of the sequence with its case")
+print("  condition: its triple and its Step-3 image satisfy (3.4) and it satisfies (3.5)")
+print("  on a cone containing every place where the sequence uses the tuple, so by")
 print("  the polynomiality criterion its (k,a,D) are those of NextABC.  The")
 print("  polynomiality ranges of the tables and the three exits are certified too.")
 print("#"*74)

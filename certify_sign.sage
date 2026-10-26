@@ -1,21 +1,21 @@
 # UNIFORM (all n >= 4) certificate for the sign of the (anti)periodicity
-# (Lemma 15 of the paper, Section 4.3) and for  sum (k_i+1) = 2n(n+1)  over one
-# period (the hypothesis s_P = L of Lemma 14).
+# (Lemma 4.4 of the paper, Section 4.2) and for  s_P = sum (k_m+1) = 2n(n+1)
+# over one period (Lemma 4.2).
 #
 # Over one period, m = 1..P (P = 9n-10 for n even, 9n-13 for n odd), the
-# orbit of Section 3.5 is a list of SEGMENTS: single j-free tuples (special
+# sequence of quintuples of Section 3.3 is a list of SEGMENTS: single j-free tuples (special
 # rows j=0, bridges) and runs of FULL blocks j = lo..hi of a pass.  For each
 # tuple, K = a q^k with a a constant and k = k0 + 2*b0*j + c0*n read off the
 # values of K (b0,c0 = exponents of u=q^{2j}, w=q^n).  With n = 2t (even) or
 # n = 2t+1 (odd) and t symbolic, every quantity below is a sum of polynomials
 # in (t, j) over ranges with polynomial end points, computed EXACTLY by
 # symbolic summation:
-#     L     = sum (k^{(m)}+1)                      (must be 2n(n+1))
-#     POS   = #{m : a^{(m)} > 0}                   (must be odd)
-#     SE    = sum nu_2(a^{(m)})  (2-adic valuation)    (must be 0)
-#     X     = eps_P + sum_{m: a^{(m)}>0} s_{m-1},  eps_P = sum binom(k^{(m)}+1, 2),
-#             s_i = sum_{m <= i} (k^{(m)}+1)        (X - n must be even)
-# where i = m-1 (so v_i = -a^{(m)} < 0  iff  a^{(m)} > 0).  Parity of a
+#     L     = sum (k_m+1)                          (must be 2n(n+1))
+#     POS   = #{m : a_m > 0}                   (must be odd)
+#     SE    = sum e_{m-1},  a_m = +-2^{e_{m-1}}     (must be 0)
+#     theta = eps_P + sum_{m: a_m>0} s_{m-1},  eps_P = sum binom(k_m+1, 2),
+#             s_i = sum_{m <= i} (k_m+1)            (theta - n must be even)
+# where i = m-1, v_i = -a_m, sigma_i = k_m (so v_i < 0  iff  a_m > 0).  Parity of a
 # polynomial f(t) is decided by the integer-valued criterion: (f(t)-c)/2 is
 # integer-valued on Z iff it takes integer values at deg+1 consecutive
 # integers (Newton's forward differences).  No value of n is substituted.
@@ -41,7 +41,7 @@ def tup(T, jj):       # one tuple at block jj  ->  (a, k as expression)
     a, b0, c0, k0 = split_K(T[3])
     return a, k0 + 2*b0*jj + c0*NN
 def segs(parity):
-    """the orbit over one period m = 1..P, as a list of segments."""
+    """the sequence over one period m = 1..P, as a list of segments."""
     S = []
     single = lambda T, jj=0: S.append(('one', T, jj))
     block  = lambda fam, lo, hi: S.append(('blk', fam, lo, hi))
@@ -95,23 +95,23 @@ for parity in (0,1):
             SE  += nb*sum(v2(a) for (a,k) in rows)
             s += nb*ln; L += nb*ln; P += 9*nb
     L = L.simplify_full(); P = P.simplify_full()
-    X = (EPS + Y).simplify_full(); POS = POS.simplify_full()
+    TH = (EPS + Y).simplify_full(); POS = POS.simplify_full()
     Lok  = bool((L - 2*NN*(NN+1)).simplify_full() == 0)
     Pok  = bool((P - (9*NN - (10 if parity==0 else 13))).simplify_full() == 0)
-    POSp = POS.polynomial(QQ); Xp = X.polynomial(QQ); NNp = NN.polynomial(QQ)
+    POSp = POS.polynomial(QQ); THp = TH.polynomial(QQ); NNp = NN.polynomial(QQ)
     posok = integer_valued((POSp - 1)/2)
-    sgnok = integer_valued((Xp - NNp)/2)
+    sgnok = integer_valued((THp - NNp)/2)
     print("  number of tuples P            = %s   (= 9n-%d: %s)"%(P, 10 if parity==0 else 13, Pok))
     print("  sum (k+1)  = s_P              = %s   (= 2n(n+1): %s)"%(L.factor(), Lok))
-    print("  sum nu_2(a)                   = %s"%SE)
+    print("  sum e   (a = +-2^e)           = %s"%SE)
     print("  #{a > 0}                      = %s   (odd for all t: %s)"%(POS, posok))
-    print("  X = eps_P + sum_{a>0} s       = %s"%Xp)
-    print("  (X - n)/2 integer-valued      : %s   => Delta_{2n(n+1)} = (-1)^n"%sgnok)
+    print("  theta = eps_P + sum_{v_l<0} s_l = %s"%THp)
+    print("  (theta - n)/2 integer-valued  : %s   => Delta_{2n(n+1)} = (-1)^n"%sgnok)
     ALL &= Lok and Pok and SE == 0 and posok and sgnok
 
 print("\n" + "#"*72)
 if not ALL:
     print("RESULT: *** FAILURE ***"); sys.exit(1)
 print("RESULT: for ALL n >= 4:  s_P = 2n(n+1);  sum e = 0 and #{a>0} odd, so")
-print("  prod_{i<P} v_i = -1;  X(n) = n mod 2, so Delta_{2n(n+1)} = (-1)^n.")
+print("  prod_{i<P} v_i = -1;  theta(n) = n mod 2, so Delta_{2n(n+1)} = (-1)^n.")
 print("#"*72)

@@ -118,7 +118,7 @@ m=9j+6  [j=0           ]     (Pass 1)
 
 --- even n: pass 1 ends at n-2j=2 ---
 ------------------------------------------------------------------------
-   >>> JUNCTION:  Pass 1 boundary tuple (m=B1: r=2, j=n/2-1) = bridge 2, c1
+   >>> JUNCTION:  n even: pass 1 row 2 at n-2j=2 has the triple of bridge 2, c1
        generic row at u = q^{2j_B} = q^n/q^2 gives (A,B,C) = Bridge 2, c1 :  identity in q, q^n = True
 
 === Bridge 2: c1..c5 (j-free) ===
@@ -160,7 +160,7 @@ m=9j+5  [c5            ]     (Bridge 2)
 
 --- odd n: pass 1 ends at n-2j=3 ---
 ------------------------------------------------------------------------
-   >>> JUNCTION:  Pass 1 boundary tuple (m=B1: r=6, j=(n-3)/2) = bridge 3, d1
+   >>> JUNCTION:  n odd: pass 1 row 6 at n-2j=3 has the triple of bridge 3, d1
        generic row at u = q^{2j_B} = q^n/q^3 gives (A,B,C) = Bridge 3, d1 :  identity in q, q^n = True
 
 === Bridge 3: d1..d3 (j-free) ===
@@ -322,7 +322,7 @@ m=9j+9  [odd, m+5/2    ]     (Pass 2 odd)
       C' = -(q^2 - q + 1)*q^n/(q*q^{2j})
    ==> (A',B',C')  is the next tuple:  Pass 2 odd ,  m=9(j+1)+1  [odd, m+5/2]
 ------------------------------------------------------------------------
-   >>> JUNCTION:  Pass 2 boundary tuple (pass-2 row 1 at q^{2j}=q^{n-2}, both parities) = bridge 1, b1
+   >>> JUNCTION:  both parities: pass 2 row 1 at n-2j=2 has the triple of bridge 1, b1
        generic row at u = q^{2j_B} = q^n/q^2 gives (A,B,C) = Bridge 1, b1 :  identity in q, q^n = True
 
 
@@ -395,7 +395,7 @@ b8 [j-free]     (Bridge 1)
 RESULT: STEP 3 VERIFIED for EVERY pass-table transition, and every pass
   junction, as a symbolic identity in q (u=q^{2j}, w=q^n free) -- hence
   for ALL n,j at once.
-  Each tuple's successor (A',B',C') is named above, tracing the full orbit:
+  Each tuple's successor (A',B',C') is named above, tracing the full sequence:
   n even: P1 -> Bridge 2 -> P2 -> Bridge 1 -> P1[m=2]
   n odd : P1 -> Bridge 3 -> P2 -> Bridge 1 -> P1[m=2]   (pre-period 1).
 ########################################################################

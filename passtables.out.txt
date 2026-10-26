@@ -41,25 +41,25 @@
   bridge7 -> bridge8         symbolic Step3: True   OK
   bridge8 -> pass1(m=2)      symbolic Step3: True   OK
   --> ALL OK
-=== PASS 1 j=0 (j-special chain) ===
-  PASS 1 j=0  s1 -> s2       symbolic Step3: True   OK
-  PASS 1 j=0  s2 -> s3       symbolic Step3: True   OK
-  PASS 1 j=0  s3 -> s4       symbolic Step3: True   OK
-  PASS 1 j=0  s4 -> s5       symbolic Step3: True   OK
-  PASS 1 j=0  s5 -> s6       symbolic Step3: True   OK
-  PASS 1 j=0  s6 -> generic  symbolic Step3: True   OK
+=== PASS 1 m=1..6 (j=0) (j-free chain) ===
+  m=1 -> m=2                 symbolic Step3: True   OK
+  m=2 -> m=3                 symbolic Step3: True   OK
+  m=3 -> m=4                 symbolic Step3: True   OK
+  m=4 -> m=5                 symbolic Step3: True   OK
+  m=5 -> m=6                 symbolic Step3: True   OK
+  m=6 -> pass 1 row 7, j=0   symbolic Step3: True   OK
   --> ALL OK
-=== BRIDGE 2 c1..c5 (n even) (j-special chain) ===
-  BRIDGE 2 c1..c5 (n even)  s1 -> s2 symbolic Step3: True   OK
-  BRIDGE 2 c1..c5 (n even)  s2 -> s3 symbolic Step3: True   OK
-  BRIDGE 2 c1..c5 (n even)  s3 -> s4 symbolic Step3: True   OK
-  BRIDGE 2 c1..c5 (n even)  s4 -> s5 symbolic Step3: True   OK
-  BRIDGE 2 c1..c5 (n even)  s5 -> generic symbolic Step3: True   OK
+=== BRIDGE 2 c1..c5 (n even) (j-free chain) ===
+  c1 -> c2                   symbolic Step3: True   OK
+  c2 -> c3                   symbolic Step3: True   OK
+  c3 -> c4                   symbolic Step3: True   OK
+  c4 -> c5                   symbolic Step3: True   OK
+  c5 -> pass 2 row 6, j=0    symbolic Step3: True   OK
   --> ALL OK
-=== BRIDGE 3 d1..d3 (n odd) (j-special chain) ===
-  BRIDGE 3 d1..d3 (n odd)  s1 -> s2 symbolic Step3: True   OK
-  BRIDGE 3 d1..d3 (n odd)  s2 -> s3 symbolic Step3: True   OK
-  BRIDGE 3 d1..d3 (n odd)  s3 -> generic symbolic Step3: True   OK
+=== BRIDGE 3 d1..d3 (n odd) (j-free chain) ===
+  d1 -> d2                   symbolic Step3: True   OK
+  d2 -> d3                   symbolic Step3: True   OK
+  d3 -> pass 2 row 2, j=1/2  symbolic Step3: True   OK
   --> ALL OK
 === JUNCTIONS: leaving a pass  (symbolic) ===
   EVEN P1 row 2, u=w/q^2  ==  bridge 2, c1       : True  (identity in q, w=q^n)
@@ -71,9 +71,9 @@ SECTIONS: 10   (all: GREEN)
 Coverage: pass 1 (generic + j=0 specials), both parities;
           pass 2 rows m=9j+r (both parities; odd n at half-integer j);
           bridge 1 (b1..b8), bridge 2 (c1..c5), bridge 3 (d1..d3): j-free, valid for all n.
-          Pass<->pass boundaries: the step m=B-1 -> B is inside a pass's
-          generic range (a generic identity above), and the junction
-          VALUES pass(k)[boundary]==pass(k+1)[m=1] are symbolic identities.
+          Pass->bridge steps: the step into the bridge is a generic identity
+          above, and the junction VALUES (next generic row at the last block
+          == first bridge entry, triples only) are symbolic identities.
 Each transition: symbolic Step 3 identity in Q(q,u,w) (=> all n,j).
-Orbit: P1 -> Bridge 2 (n even) / Bridge 3 (n odd) -> P2 -> Bridge 1 -> P1[m=2].
+Sequence: P1 -> Bridge 2 (n even) / Bridge 3 (n odd) -> P2 -> Bridge 1 -> P1[m=2].
 SUMMARY: ALL GREEN

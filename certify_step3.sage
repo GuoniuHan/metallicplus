@@ -1,17 +1,17 @@
 # ============================================================================
 #  certify_step3.sage  --  verbose, pass-table-ordered verification of STEP 3.
 #
-#  Step 3 of Algorithm N maps a tuple (A,B,C; k,a,D) to the successor triple
-#  (A',B',C') via eqs. (14)-(16) of the paper.  Unlike Steps 1&2 this is an
+#  Step 3 of Algorithm NextABC maps a tuple (A,B,C; k,a,D) to the successor triple
+#  (A',B',C') via eqs. (2.7)-(2.9) of the paper.  Unlike Steps 1&2 this is an
 #  IDENTITY in Q(q,u,w) (u=q^{2j}, w=q^n free), valid whatever the relative size
 #  of the exponents, so a single symbolic check settles it for ALL n,j at once.
 #
 #  For every tuple of the pass-tables we (i) compute (A',B',C'), (ii) verify the
 #  identity symbolically, and (iii) say WHICH tuple (A',B',C') is -- i.e. where
-#  the orbit goes next.  The tuple data + step3() + shift_j1/at_u + the bridge
+#  the sequence of quintuples goes next.  The tuple data + step3() + shift_j1/at_u + the bridge
 #  triples all come from passtables.sage.
 #
-#  The orbit has the same shape for both parities of n >= 4:
+#  The sequence has the same shape for both parities of n >= 4:
 #      n even:  Pass 1 -> Bridge 2 (c1..c5) -> Pass 2 -> Bridge 1 (b1..b8) -> Pass 1 [m=2]
 #      n odd :  Pass 1 -> Bridge 3 (d1..d3) -> Pass 2 -> Bridge 1 (b1..b8) -> Pass 1 [m=2]
 #  Pass 1, the Pass-2 rows m=9j+r and the three bridges are the same for
@@ -57,10 +57,11 @@ def T(src_dic, r, cond, passlab, dst_dic, dr, dcond, dstpass, mode='same'):
     print("   ==> (A',B',C')  is the next tuple:  %s ,  %s  [%s]"%(dstpass, dstm(dr,mode), dcond))
 
 def junction(txt, gen_row, uB, dst, dstlab):
-    """The boundary tuple of a pass: Step 3 at m=B-1 is a generic transition
-    (checked above for all u,w), so its (A,B,C) is the generic row r_B at
-    u=u_B.  Prove symbolically (identity in q, w) that this equals the first
-    tuple of the next pass; that tuple then carries its OWN (K,D)."""
+    """Where a pass ends: the step into the bridge is a generic transition
+    (checked above for all u,w), so the first bridge entry has the triple
+    (A,B,C) of the next generic row r_B at the last block u=u_B.  Prove
+    symbolically (identity in q, w) that the two triples are equal; the
+    bridge entry then carries its OWN (K,D) (paper, Sec. 3.4, Remark 3.4)."""
     lhs = [Fs(x).subs({u: uB}) for x in gen_row[:3]]
     ok = all(lhs[i] == Fs(dst[i]) for i in range(3))
     if not ok: FAIL.append(("junction", txt))
@@ -80,12 +81,12 @@ T(s1,6,"j=0","Pass 1", gp1,7,"all j","Pass 1",'u1')
 # ===================== BRIDGES 2 AND 3: PASS 1 -> PASS 2 ===========================
 print("\n\n"+"#"*72); print("# STEP 3  --  BRIDGE 2 (n even) / BRIDGE 3 (n odd):  Pass 1 -> Pass 2"); print("#"*72)
 print("\n--- even n: pass 1 ends at n-2j=2 ---")
-junction("Pass 1 boundary tuple (m=B1: r=2, j=n/2-1) = bridge 2, c1", gp1[2], w/qs^2, s2[1], "Bridge 2, c1")
+junction("n even: pass 1 row 2 at n-2j=2 has the triple of bridge 2, c1", gp1[2], w/qs^2, s2[1], "Bridge 2, c1")
 print("\n=== Bridge 2: c1..c5 (j-free) ===")
 for r in range(1,5): T(s2,r,"c%d"%r,"Bridge 2", s2,r+1,"c%d"%(r+1),"Bridge 2")
 T(s2,5,"c5","Bridge 2", gp2,6,"j=0","Pass 2, row 6 at j=0 (first tuple)",'u1')
 print("\n--- odd n: pass 1 ends at n-2j=3 ---")
-junction("Pass 1 boundary tuple (m=B1: r=6, j=(n-3)/2) = bridge 3, d1", gp1[6], w/qs^3, o2[1], "Bridge 3, d1")
+junction("n odd: pass 1 row 6 at n-2j=3 has the triple of bridge 3, d1", gp1[6], w/qs^3, o2[1], "Bridge 3, d1")
 print("\n=== Bridge 3: d1..d3 (j-free) ===")
 for r in range(1,3): T(o2,r,"d%d"%r,"Bridge 3", o2,r+1,"d%d"%(r+1),"Bridge 3")
 T(o2,3,"d3","Bridge 3", go2,4,"j=1/2","Pass 2, row 2 at j=1/2 (first tuple)",'u1')
@@ -99,7 +100,7 @@ print("\n(Odd n reads these rows at index m+5/2, i.e. u -> q^{+-1}u; Step 3 does
 print(" involve u, so the transitions above give the odd ones.  Re-checked directly:)")
 for r in range(1,9): T(go2,r,"odd, m+5/2","Pass 2 odd", go2,r+1,"odd, m+5/2","Pass 2 odd")
 T(go2,9,"odd, m+5/2","Pass 2 odd", go2,1,"odd, m+5/2","Pass 2 odd",'jshift')
-junction("Pass 2 boundary tuple (pass-2 row 1 at q^{2j}=q^{n-2}, both parities) = bridge 1, b1", gp2[1], w/qs^2, br[1], "Bridge 1, b1")
+junction("both parities: pass 2 row 1 at n-2j=2 has the triple of bridge 1, b1", gp2[1], w/qs^2, br[1], "Bridge 1, b1")
 
 # ============================ BRIDGE 1 (both parities) ========================
 print("\n\n"+"#"*72); print("# STEP 3  --  BRIDGE 1 (both parities):  b1..b8, j-free -> Pass1[m=2]"); print("#"*72)
@@ -117,7 +118,7 @@ for r in range(1,8): Tbr(r, br[r+1], "Bridge 1 ,  b%d"%(r+1))
 Tbr(8, p1_m2, "Pass 1 ,  m=2  [j=0]   (re-enters; closes the cycle, both parities)")
 
 # bridge #8 vs the initial tuple: they differ only by the signs of A and C,
-# so the orbit is periodic from m=2 on, with pre-period exactly 1.
+# so the sequence is periodic from m=2 on, with pre-period exactly 1.
 okpre = (Fs(br[8][0]) == -Fs(s1[1][0]) and Fs(br[8][1]) == Fs(s1[1][1])
          and Fs(br[8][2]) == -Fs(s1[1][2]))
 if not okpre: FAIL.append(("pre-period",))
@@ -131,7 +132,7 @@ if FAIL:
 print("RESULT: STEP 3 VERIFIED for EVERY pass-table transition, and every pass")
 print("  junction, as a symbolic identity in q (u=q^{2j}, w=q^n free) -- hence")
 print("  for ALL n,j at once.")
-print("  Each tuple's successor (A',B',C') is named above, tracing the full orbit:")
+print("  Each tuple's successor (A',B',C') is named above, tracing the full sequence:")
 print("  n even: P1 -> Bridge 2 -> P2 -> Bridge 1 -> P1[m=2]")
 print("  n odd : P1 -> Bridge 3 -> P2 -> Bridge 1 -> P1[m=2]   (pre-period 1).")
 print("#"*72)
